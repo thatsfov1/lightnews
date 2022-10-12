@@ -1,0 +1,55 @@
+.avatar img {
+    
+    width: 40px;
+    height: 40px;
+    border-radius: 1000px;
+   
+}
+
+.dialogs{
+    display: grid;
+    grid-template-columns: 300px 300px;
+    padding: 10px;
+    grid-template-areas: 
+    "a m";
+    
+}
+.name{
+    color: rgb(15, 15, 85);
+}
+
+.avatar{
+    grid-area: a;
+}
+
+.message{
+    grid-area:m;
+}
+
+.areamessages{
+    padding-left: 300px;
+}
+.button{
+    margin: 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(53, 53, 158);
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+    position: relative;
+    padding: 5px 10px;
+    transition: all 300ms ease;
+
+}
+
+.button:hover{
+
+    box-shadow: 0 0 0 3px rgb(53, 53, 158);
+}
+
+.textarea{
+    border-radius: 10px;
+    background-color: rgb(245, 245, 245);
+  border-color:rgb(150, 150, 150);
+  outline: none;
+}

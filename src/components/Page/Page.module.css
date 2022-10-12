@@ -1,0 +1,27 @@
+.content{
+  grid-area: c;
+  margin-right: 30px;
+
+}
+
+.info img {
+  width: 30px;
+  height: 30px;
+  border-radius: 500px;
+}
+
+ 
+.infopost {
+
+ }
+
+ .news {
+  
+ }
+
+ .background img {
+  width: 700px;
+  
+  height: 70px;
+
+ }
