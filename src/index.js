@@ -3,7 +3,7 @@ import reportWebVitals from './reportWebVitals';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import store from './components/redux/state';
+import store from './components/redux/redux-store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,7 +22,10 @@ let RenderNewTree =()=>{
 
 
 RenderNewTree(store.getState());
-store.subscriber(RenderNewTree)
+store.subscribe(()=>{
+  let state = store.getState();
+  RenderNewTree();
+})
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
