@@ -11,7 +11,7 @@ let initialState = {
         { id: 2, message: "News about Captain America", likes: 15, reposts: 3 }
       ],
       newPostText: ''
-}
+};
 
 const profileReducer = (state= initialState, action) => {
     switch (action.type) {

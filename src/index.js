@@ -22,6 +22,8 @@ let RenderNewTree =()=>{
 
 
 RenderNewTree(store.getState());
+
+
 store.subscriber(() =>{
   let state = store.getState();
   RenderNewTree(state);

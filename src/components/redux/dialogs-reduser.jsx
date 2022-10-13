@@ -14,7 +14,7 @@ let initialState = {
         {id:5, name: "Andrey", avatar:"https://ic.pics.livejournal.com/kabzon/7182730/3079824/3079824_600.png",message:"Hi,what is your name?" }
       ],
       newMessageBody: ''
-}
+};
 
 const dialogsReducer = (state= initialState, action) => {
     switch (action.type) {
