@@ -5,8 +5,15 @@ export const addNewsActionCreator = () => ({ type: ADD_POST });
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 
+let initialState = {
+    post: [
+        { id: 1, message: "News about Spider-Man", likes: 16, reposts: 2 },
+        { id: 2, message: "News about Captain America", likes: 15, reposts: 3 }
+      ],
+      newPostText: ''
+}
 
-const profileReducer = (state, action) => {
+const profileReducer = (state= initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let newNews = {
