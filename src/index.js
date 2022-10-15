@@ -12,12 +12,12 @@ let RenderNewTree =()=>{
   
   root.render(
     <React.StrictMode>
-      <StoreContext.Provider value={store}>
+      
       <App state={store.getState()} 
       dispatch={store.dispatch.bind(store)}
       store={store}
        />
-       </StoreContext.Provider>
+     
     </React.StrictMode>
   );
   }
