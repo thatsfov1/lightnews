@@ -10,6 +10,9 @@ let initialState = {
       { id: 1, message: "News about Spider-Man", likes: 16, reposts: 2 },
       { id: 2, message: "News about Captain America", likes: 15, reposts: 3 }
     ],
+    profile: [
+        { id: 1, name: "My Group", avatar: "https://cdn.27.ua/sc--media--prod/default/82/13/ed/8213edef-2996-4de1-a9ea-fd07d08d3e21.jpeg" },
+      ],
     newPostText: ''
   };
 

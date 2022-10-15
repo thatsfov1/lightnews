@@ -7,17 +7,18 @@ import classes from "./Dialogs.module.css";
 
 
 const Dialogs = (props) => {
-    let state = props.store.getState().dialogsPage;
+    
+    let state = props.dialogsPage;
 
     let dialogsinfo = state.dialogs.map(d => <DialogsItem id={d.id} name={d.name} avatar={d.avatar} message={d.message} />)
     let newMessageBody = state.newMessageBody;
 
     let sendMessage = () => {
-        props.store.dispatch(sendMessageCreator())
+        props.sendMessage()
     }
     let onMessageChange = (e) => {
         let body = e.target.value;
-        props.store.dispatch(updateNewMessageBodyCreator(body));
+        props.newMessageBody(body);
     }
 
 

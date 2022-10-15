@@ -8,19 +8,18 @@ import { addNewsActionCreator, updateNewTextPostActionCreator } from '../../redu
 
 const MyPosts = (props) => {
 
+
   let messageInfo = props.post.map (m => <NewPost id={m.id} message={m.message} likes={m.likes} reposts={m.reposts} /> )
 
  let newPostElement = React.createRef();
 
   let addNews = () =>{
-    let action =(addNewsActionCreator());
-    props.dispatch(action)
+   props.addNews();
   }
 
   let onPostChange = () =>{
     let text = newPostElement.current.value;
-    let action =(updateNewTextPostActionCreator(text));
-    props.dispatch(action)
+    props.updateNewTextPost(text);
   }
   
   return <div className={classes.content}>

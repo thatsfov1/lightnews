@@ -12,11 +12,9 @@ import Politics from './components/Politics/Politics';
 import Settings from './components/Settings/Settings';
 import Music from './components/Music/Music';
 import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainre';
 
 const App = (props) => {
-
-
-
 
   return (
     <BrowserRouter>
@@ -25,12 +23,8 @@ const App = (props) => {
         <Navbar />
         <Routes>
           <Route path="/groups/*" element={<Groups info={props.state.info} group={props.state.group} />} />
-          <Route path="/dialogs/*" element={<Dialogs store={props.store} />} />
-          <Route path="/mygroup/*" element={<Page post={props.state.post}
-            profile={props.state.profile}
-            profilePage={props.state.profilePage}
-            dispatch={props.dispatch}
-          />} />
+          <Route path="/dialogs/*" element={<DialogsContainer store={props.store} />} />
+          <Route path="/mygroup/*" element={<Page store={props.store}/>} />
           <Route path="/weather/*" element={<Weather weather={props.state.weather} />} />
           <Route path="/politics/*" element={<Politics politics={props.state.politics} />} />
           <Route path="/settings/*" element={<Settings />} />

@@ -3,6 +3,7 @@ import classes from './Page.module.css';
 import React from 'react';
 import Status from './Status';
 import ProfileInfo from './MyPosts/ProfileInfo';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 
 
 
@@ -12,7 +13,10 @@ import ProfileInfo from './MyPosts/ProfileInfo';
 
 
 const Page = (props) => {
-  let profile = props.profile.map(el => <ProfileInfo name={el.name} id={el.id} avatar={el.avatar} /> )
+
+    let state = props.store.getState().profilePage;
+
+  let profile = state.profile.map(el => <ProfileInfo name={el.name} id={el.id} avatar={el.avatar} /> )
 
   return <div className={classes.content}>
     <div className={classes.background}><img className='background' src="lightning-5.jpeg" alt="background" /></div>
@@ -23,9 +27,7 @@ const Page = (props) => {
     <Status/>
     <br />
     
-    <MyPosts post={props.profilePage.post} 
-    dispatch={props.dispatch} 
-    newPostText={props.profilePage.newPostText}
+    <MyPostsContainer store={props.store}
     />
     
   </div>;
