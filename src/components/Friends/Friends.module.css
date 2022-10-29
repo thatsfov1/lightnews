@@ -1,4 +1,4 @@
-.groups{
+.friends{
     display: grid;
     grid-template-columns:300px 300px ;
     grid-auto-flow: row;
@@ -8,7 +8,7 @@
     "gn";
 }
 
-.groupname{
+.friendname{
     grid-area: gn;
     
 }
@@ -23,12 +23,12 @@
     padding-bottom: 20px;
 }
 
-.groupname .active {
+.friendname .active {
 
     color: rgb(77, 77, 77)
 }
 
-.group a{
+.friend a{
     text-decoration: none;
     color: rgb(32, 0, 172);
 
@@ -46,7 +46,7 @@
     grid-area: s;
 }
 
-.group{
+.friend{
     float: left;
 }
 

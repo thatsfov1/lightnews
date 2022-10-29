@@ -1,12 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import classes from "./../Groups.module.css";
+import classes from "./../Friends.module.css";
 
-const GroupItem = (props) => {
+const FriendsItem = (props) => {
     
-    let path = /groups/ + props.id;
-    return <div className={classes.group + ' ' + classes.active}>
+    let path = /friends/ + props.id;
+    return <div className={classes.friend + ' ' + classes.active}>
         <div className={classes.avatar}>
             <img src={props.avatar} />
 
@@ -24,4 +24,4 @@ const GroupItem = (props) => {
 
 
 
-export default GroupItem;
+export default FriendsItem;

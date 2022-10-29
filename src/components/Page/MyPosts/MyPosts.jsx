@@ -1,14 +1,12 @@
 import classes from './MyPosts.module.css'
 import NewPost from './NewPost/NewPost';
 import React from 'react';
-import { addNewsActionCreator, updateNewTextPostActionCreator } from '../../redux/profile-reduser';
-
 
 
 
 const MyPosts = (props) => {
 
-
+debugger
   let messageInfo = props.post.map (m => <NewPost id={m.id} message={m.message} likes={m.likes} reposts={m.reposts} /> )
 
  let newPostElement = React.createRef();
