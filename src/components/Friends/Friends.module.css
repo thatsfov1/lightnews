@@ -1,11 +1,13 @@
 .friends{
     display: grid;
-    grid-template-columns:300px 300px ;
+    grid-template-columns:300px;
     grid-auto-flow: row;
     grid-template-areas:
     "s"
     "n"
-    "gn";
+    "t"
+    "gn"
+    ;
 }
 
 .friendname{
@@ -90,4 +92,16 @@
 }
 .buttonUnfollow:hover{
     box-shadow: 0 0 0 3px rgb(216, 216, 216);
+}
+
+.selectedPage{
+    font-weight: bold;
+    color: black;
+}
+
+.totalPage{
+    grid-area: t;
+    cursor: pointer;
+    color: rgb(72, 72, 72);
+    padding-bottom: 20px;
 }
