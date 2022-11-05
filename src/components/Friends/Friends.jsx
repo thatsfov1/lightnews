@@ -9,7 +9,7 @@ import userphoto from '../../assets/userphoto.png'
 
 const Friends =(props)=>{
 
-        let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
+        let pagesCount = Math.ceil(props.totalCount / props.pageSize)
 
         let pages = [];
         for (let i = 1; i <= pagesCount; i++) {
@@ -35,10 +35,10 @@ const Friends =(props)=>{
                 props.friends.map(fr => <div key={fr.id} className={classes.friend + ' ' + classes.active}>
 
                     <div className={classes.avatar}>
-                        <img src={fr.photos.small != null ? fr.photos.small : userphoto} />
+                    <NavLink to={/profile/ + fr.id} ><img src={fr.photos.small != null ? fr.photos.small : userphoto} /></NavLink>
                     </div>
 
-                    <NavLink to={/friends/ + fr.id} >{fr.name}</NavLink>
+                    <NavLink to={/profile/ + fr.id} >{fr.name}</NavLink>
 
                     <div className={classes.info}>
                         {fr.status != null ? fr.status : "no status yet"}

@@ -1,6 +1,6 @@
 
 import { connect } from "react-redux";
-import { followAC, setGroapsAC, unfollowAC } from "../redux/groups-reduser";
+import { follow, setGroup, unfollow } from "../redux/groups-reduser";
 import Groups from "./Groups";
 
 const mapStateToProps = (state) =>{
@@ -9,19 +9,8 @@ const mapStateToProps = (state) =>{
         groups:state.groupsPage.groups
     }
 }
-const mapDispatchToProps = (dispatch) =>{
-    return{
-        follow:(groupId)=>{
-            dispatch(followAC(groupId))
-        },
-        unfollow:(groupId)=>{
-            dispatch(unfollowAC(groupId))
-        },
-        setGroup:(groupId)=>{
-            dispatch(setGroapsAC(groupId))
-        }
-        
-    }
-}
-const GroupsContainer = connect(mapStateToProps,mapDispatchToProps)(Groups);
+
+const GroupsContainer = connect(mapStateToProps,{
+    follow,unfollow,setGroup
+})(Groups);
 export default GroupsContainer;

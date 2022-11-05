@@ -1,9 +1,9 @@
 
 const SEND_MESSAGE = 'SEND_MESSAGE';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
-export const updateNewMessageBodyCreator = (body) => ({ type: UPDATE_NEW_MESSAGE_BODY, newMessage: body });
+export const newMessageBody = (body) => ({ type: UPDATE_NEW_MESSAGE_BODY, newMessage: body });
 
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
+export const sendMessage = () => ({ type: SEND_MESSAGE });
 
 let initialState = {
     dialogs: [

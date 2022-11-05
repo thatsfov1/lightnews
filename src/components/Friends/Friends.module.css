@@ -6,6 +6,7 @@
     "s"
     "n"
     "t"
+    "pr"
     "gn"
     ;
 }
@@ -104,4 +105,8 @@
     cursor: pointer;
     color: rgb(72, 72, 72);
     padding-bottom: 20px;
+}
+
+.preloader{
+    grid-area: pr;
 }

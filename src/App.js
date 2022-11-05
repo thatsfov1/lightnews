@@ -12,6 +12,7 @@ import MusicContainer from './components/Music/MusicContainer';
 import PoliticsContainer from './components/Politics/PoliticsContainer';
 import WeatherContainer from './components/Weather/WeatherContainer';
 import FriendsContainer from './components/Friends/FriendsContainer';
+import PageContainer from './components/Page/PageContainer';
 
 const App = () => {
   return (
@@ -22,8 +23,10 @@ const App = () => {
         <Routes>
           <Route path="/groups/*" element={<GroupsContainer />} />
           <Route path="/dialogs/*" element={<DialogsContainer  />} />
-          <Route path="/friends/*" element={<FriendsContainer />} />
-          <Route path="/mygroup/*" element={<Page />} />
+          <Route path="/friends/" element={<FriendsContainer />} />
+          <Route path="/profile/:userId?" element={<PageContainer />} />
+          <Route path="/profile/*" element={<PageContainer />} />
+          <Route path="/group/*" element={<PageContainer />} />
           <Route path="/weather/*" element={<WeatherContainer />} />
           <Route path="/politics/*" element={<PoliticsContainer />} />
           <Route path="/settings/*" element={<Settings />} />

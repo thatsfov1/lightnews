@@ -9,7 +9,7 @@ const Navbar = () => {
         <NavLink to="/groups" > Groups</NavLink>
       </div>
       <div className={classes.item}>
-        <NavLink to="/mygroup" > My Group</NavLink>
+        <NavLink to="/group" > My Group</NavLink>
       </div>
       <div className={classes.item}>
         <NavLink to="/dialogs" > Dialogs</NavLink>

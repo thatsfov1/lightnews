@@ -1,4 +1,5 @@
 import { combineReducers, legacy_createStore as createStore } from "redux";
+import authReducer from "./auth-reduser";
 import categoriesReducer from "./categories-reduser";
 import dialogsReducer from "./dialogs-reduser";
 import friendsReducer from "./friends-reduser";
@@ -11,8 +12,9 @@ let reducers =combineReducers({
     groupsPage:groupsReducer,
     friendsPage:friendsReducer,
     otherPage:categoriesReducer,
+    auth:authReducer,
 });
 
-let store = createStore(reducers);
 
+let store = createStore(reducers);
 export default store;

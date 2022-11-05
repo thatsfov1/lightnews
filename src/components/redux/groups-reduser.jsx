@@ -5,11 +5,11 @@ const SET_GROUPS = 'SET_GROUPS';
 
 
 
-export const followAC = (groupId) => ({ type: FOLLOW, groupId });
+export const follow = (groupId) => ({ type: FOLLOW, groupId });
 
-export const unfollowAC = (groupId) => ({ type: UNFOLLOW, groupId });
+export const unfollow = (groupId) => ({ type: UNFOLLOW, groupId });
 
-export const setGroapsAC = (groups) => ({ type: SET_GROUPS, groups });
+export const setGroup = (groups) => ({ type: SET_GROUPS, groups });
 
 let initialState = {
     groups: [
