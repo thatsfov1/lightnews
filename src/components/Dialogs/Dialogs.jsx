@@ -1,4 +1,5 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 import DialogsItem from "../DialogsItem/DialogsItem";
 import classes from "./Dialogs.module.css";
 
@@ -18,8 +19,6 @@ const Dialogs = (props) => {
         let body = e.target.value;
         props.newMessageBody(body);
     }
-
-
 
     return <div className={classes.abc}>
         <h1>Dialogs</h1>

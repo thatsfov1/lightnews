@@ -72,7 +72,7 @@
     box-sizing: border-box;
     position: relative;
     padding: 5px 10px;
-    transition: all 300ms ease;
+    transition-duration: .2s;
 
 }
 .buttonUnfollow{
@@ -84,15 +84,15 @@
     box-sizing: border-box;
     position: relative;
     padding: 5px 10px;
-    transition: all 300ms ease;
+    transition-duration: .2s;
 
 }
 
 .buttonFollow:hover{
-    box-shadow: 0 0 0 3px rgb(53, 53, 158);
+    transform: scale(1.05);
 }
 .buttonUnfollow:hover{
-    box-shadow: 0 0 0 3px rgb(216, 216, 216);
+    transform: scale(1.05);
 }
 
 .selectedPage{

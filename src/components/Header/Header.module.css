@@ -14,16 +14,18 @@
   }
 
   .login{
+    color: white;
     display: grid;
     justify-items: center;
     align-items: center;
     position: relative;
-    right: 10px;
+    right: 20px;
     bottom: 50px;
     width: 80px;
     height: 40px;
     border: 3px solid white;
     float: right;
+    transition-duration: .2s;
   }
 
   .login a{
@@ -31,13 +33,7 @@
     font-weight: bold;
     color: white;
   }
-  .login a:hover{
-    text-decoration: none;
-    font-weight: bold;
-    color: rgb(33, 31, 129);
-  }
 
   .login:hover{
-    background-color: white;
-    
+    transform: scale(1.02);
   }
