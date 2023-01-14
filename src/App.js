@@ -40,7 +40,7 @@ class App extends React.Component {
                         <NavbarPages/>
                         <NavbarAccount/>
                     </div>
-                    <Suspense fallback={<div><Preloader/></div>}>
+                    <div className='container'><Suspense fallback={<div><Preloader/></div>}>
                         <Routes>
                             <Route path="/groups/*" element={<GroupsContainer/>}/>
                             <Route path="/dialogs/*" element={<DialogsContainer/>}/>
@@ -54,7 +54,7 @@ class App extends React.Component {
                             <Route path="/login" element={<Login/>}/>
                             <Route path="/createprofile" element={<CreateProfile/>}/>
                         </Routes>
-                    </Suspense>
+                    </Suspense></div>
                 </div>
             </>
 

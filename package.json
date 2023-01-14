@@ -138,5 +138,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
   }
 }
