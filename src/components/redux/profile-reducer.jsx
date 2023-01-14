@@ -9,7 +9,7 @@ export const setPhoto = (photos) => ({ type: SET_PHOTO, photos});
 const ADD_POST = 'ADD_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS'
-const SET_PHOTO = 'SET_PHOTO'
+const SET_PHOTO = 'profile_reducer/SET_PHOTO'
 
 export const getStatus  = (id) => async (dispatch) =>{
       const response =  await profileAPI.getStatus(id)
