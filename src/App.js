@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import GroupsContainer from './components/Groups/GroupContainer';
-import FriendsContainer from './components/Friends/FriendsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 import PageContainer from './components/Page/PageContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
@@ -40,11 +40,11 @@ class App extends React.Component {
                         <NavbarPages/>
                         <NavbarAccount/>
                     </div>
-                    <div className='container'><Suspense fallback={<div><Preloader/></div>}>
+                    <div className='container'><Suspense fallback={<div style={{display:"flex",width:"100%" , alignItems:"center", justifyContent:"center"}}><Preloader/></div>}>
                         <Routes>
-                            <Route path="/groups/*" element={<GroupsContainer/>}/>
+                            <Route path="/groups" element={<GroupsContainer/>}/>
                             <Route path="/dialogs/*" element={<DialogsContainer/>}/>
-                            <Route path="/friends/" element={<FriendsContainer/>}/>
+                            <Route path="/users/" element={<UsersContainer/>}/>
                             <Route path="/profile/:id" element={<PageContainer/>}/>
                             <Route path="/profile" element={<PageContainer/>}/>
                             <Route path="/weather/*" element={<Weather/>}/>

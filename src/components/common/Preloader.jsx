@@ -1,8 +1,8 @@
 import preloader from "../../assets/preloader.svg"
 import React from "react"
-import classes from "../Friends/Friends.module.css"
+import classes from "../Users/Users.module.css"
 
-const Preloader =(props)=>{
+const Preloader = () => {
     return <div className={classes.preloader}>
         <img src={preloader}/>
     </div>

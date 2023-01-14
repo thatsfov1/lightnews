@@ -1,10 +1,8 @@
-
 import { connect } from "react-redux";
 import { follow, setGroup, unfollow } from "../redux/groups-reducer";
 import Groups from "./Groups";
 
 const mapStateToProps = (state) =>{
-   
     return{
         groups:state.groupsPage.groups
     }

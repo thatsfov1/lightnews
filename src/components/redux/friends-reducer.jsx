@@ -63,7 +63,7 @@ export const unfollow = (id) => {
 
 let initialState = {
     friends: [],
-    pageSize: 10,
+    pageSize: 12,
     totalCount: 0,
     currentPage: 1,
     isFetching: true,

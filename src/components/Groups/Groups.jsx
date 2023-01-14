@@ -7,7 +7,6 @@ import {CiFilter,AiOutlineSearch} from "react-icons/all";
 const Groups = ({groups,unfollow,follow}) => {
 
     return <div className={s.container}>
-
         <div className={s.search_container}>
             <span className={s.search_name}>Groups</span>
             <div className={s.search_input_container}>

@@ -1,62 +1,44 @@
 import { Field, Form, Formik } from "formik";
-import React from "react";
+import React, {useState} from "react";
 import * as yup from 'yup'
 import DialogsItem from "../DialogsItem/DialogsItem";
-import classes from "./Dialogs.module.css";
+import s from "./Dialogs.module.css";
+import DialogsForm from "./DialogsForm";
+import {faker} from "@faker-js/faker";
+import {HiOutlineStatusOnline} from "react-icons/all";
 
 
 
-const Dialogs = (props) => {
+const Dialogs = ({dialogsPage,sendMessage}) => {
 
-    let state = props.dialogsPage;
+    const [online, setOnline] = useState(false);
 
-    let dialogsinfo = state.dialogs.map(d => <DialogsItem id={d.id} key={d.id} name={d.name} avatar={d.avatar} message={d.message} />)
 
-    return <div className={classes.abc}>
-        <h1>Dialogs</h1>
-
-        <div>{dialogsinfo}</div>
-        <div className={classes.areamessages}>
-            <DialogsForm sendMessage={props.sendMessage}/>
+    return <div className={s.container}>
+        <div className={s.header}>
+            <div className={s.avatar}>
+                <img src={faker.internet.avatar()}/>
+            </div>
+            <div className={s.user_info}>
+                <div className={s.name}>
+                    {faker.name.fullName()}
+                </div>
+                <div className={s.last_online}>
+                    {online ? <span>
+                        <HiOutlineStatusOnline/> online
+                    </span> : <span>Last seen at: {faker.date.recent().toTimeString().slice(0,5)}</span>}
+                </div>
+            </div>
+        </div>
+        <div>
+            {dialogsPage.dialogs.map(d => <DialogsItem id={d.id} key={d.id} name={d.name}
+                                                       avatar={d.avatar} message={d.message} />)
+            }
+        </div>
+        <div className={s.areamessages}>
+            <DialogsForm sendMessage={sendMessage}/>
         </div>
     </div>
 }
 
-
-const DialogsForm =(props)=>{
-
-    const validationSchema = yup.object().shape({
-        message: yup.string().typeError('must be string')
-    })
-    return <Formik
-    initialValues={
-        {
-            message:'',
-    }
-}
-    validateOnBlur
-    onSubmit={(values,{resetForm})=>{
-        props.sendMessage(values.message)
-        resetForm({values:''})
-    }}
-    validationSchema={validationSchema}
-    >
-        {({values, errors, handleChange,handleSubmit})=>(
-            <Form className={classes.form}>
-                    <div>
-                        <Field as='textarea' type="text"
-                        className={classes.input} 
-                        name="message" 
-                        placeholder="Write your message..."
-                        value={values.message} 
-                        onChange={handleChange} />
-                        {values.message && <button className={classes.button} type={'submit'} onClick={handleSubmit} >Send</button>}
-                        {errors.message && <p className={classes.errors}>{errors.message}</p>}
-                    </div>
-            </Form>
-        )}
-
-
-    </Formik>
-}
 export default Dialogs;

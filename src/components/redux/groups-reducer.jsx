@@ -17,7 +17,7 @@ const initialState = {
     groups: [...Array(6)].map(()=> ({
         id:faker.datatype.uuid(),
         followed:faker.datatype.boolean(),
-        name:faker.name.findName(),
+        name:faker.finance.accountName,
         avatar:faker.internet.avatar(),
         email: faker.internet.email(),
         wallpaper:faker.image.abstract()

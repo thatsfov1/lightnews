@@ -29,7 +29,7 @@ export const NavbarFeeds = () => {
         </div>
         <div className={s.item}>
           <div className={s.item_logo + " " + s.friends}><FaUserFriends size={20}/></div>
-          <NavLink to="/friends"> Friends</NavLink>
+          <NavLink to="/users"> Users</NavLink>
         </div>
     </div>
   </div>
