@@ -3,10 +3,10 @@ import reportWebVitals from './reportWebVitals';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import store from './components/redux/redux-store';
+import store from './components/redux/store';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

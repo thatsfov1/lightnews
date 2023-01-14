@@ -1,20 +1,19 @@
-import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
 import Preloader from "../common/Preloader";
-import { follow, setCurrentPage, unfollow, toggleFollowingProgress, getFriends } from "../redux/friends-reduser";
+import { follow, setCurrentPage, unfollow, toggleFollowingProgress, requestFriends } from "../redux/friends-reducer";
 import Friends from "./Friends";
+import {getCurrentPage, getFollowingInProgress, getFriends, getIsFetching, getPageSize} from '../redux/users-selectors'
 
 
 class FriendsContainer extends React.Component {
     componentDidMount() {
-
-        this.props.getFriends(this.props.currentPage, this.props.pageSize);
-        
+        this.props.requestFriends(this.props.currentPage, this.props.pageSize);
     }
+
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
-        this.props.getFriends(pageNumber, this.props.pageSize);
+        this.props.requestFriends(pageNumber, this.props.pageSize);
     }
     
     render() {
@@ -39,16 +38,15 @@ class FriendsContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-
     return {
-        friends: state.friendsPage.friends,
-        pageSize: state.friendsPage.pageSize,
+        friends: getFriends(state),
+        pageSize: getPageSize(state),
         totalCount: state.friendsPage.totalCount,
-        currentPage: state.friendsPage.currentPage,
-        isFetching: state.friendsPage.isFetching,
-        followingInProgress: state.friendsPage.followingInProgress,
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state),
     }
 }
 export default connect(mapStateToProps,
-     {follow,unfollow,setCurrentPage,toggleFollowingProgress,getFriends})
+     {follow,unfollow,setCurrentPage,toggleFollowingProgress,requestFriends})
      (FriendsContainer);

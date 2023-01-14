@@ -1,73 +1,74 @@
-import { profileAPI } from "../api/api";
+import {profileAPI, usersAPI} from "../api/api";
 
-export const updateNewTextPost = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
-export const addNews = () => ({ type: ADD_POST });
+export const addNews = (postMessage) => ({ type: ADD_POST, postMessage });
+
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile});
 export const setUserStatus = (status) => ({ type: SET_USER_STATUS, status});
+export const setPhoto = (photos) => ({ type: SET_PHOTO, photos});
 
 const ADD_POST = 'ADD_POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS'
+const SET_PHOTO = 'SET_PHOTO'
 
-export const getStatus  = (id) =>{
-   
-    return (dispatch) =>{
-        profileAPI.getStatus(id)
-        .then(response => {
-        if(response.data.resultCode === 0){
+export const getStatus  = (id) => async (dispatch) =>{
+      const response =  await profileAPI.getStatus(id)
                 dispatch(setUserStatus(response.data))
-            }
-        })
     }
-}
 
 export const updateStatus  = (status) =>{
-    return (dispatch) =>{
-        profileAPI.updateStatus(status)
-        .then(response => {
+    return async (dispatch) =>{
+        const response = await profileAPI.updateStatus(status)
         if(response.data.resultCode === 0){
                 dispatch(setUserStatus(status))
             }
-        })
     }
 }
+export const userProfile = (id) => async (dispatch) => {
+        const response = await usersAPI.getUserProfile(id)
+            dispatch(setUserProfile(response.data))
+    }
+export const savePhoto = (file) => async (dispatch) => {
+        const response = await profileAPI.savePhoto(file)
+    if(response.data.resultCode === 0) {
+        dispatch(setPhoto(response.data.data.photos))
+    }
+}
+export const saveChangesProfile = (profile) => async (dispatch,getState) => {
+    const id = getState().auth.id
+        const response = await profileAPI.saveProfileInfo(profile)
+    if(response.data.resultCode === 0) {
+        dispatch(userProfile(id))
+    }
+}
+
 
 let initialState = {
     post: [
         { id: 1, message: "News about Spider-Man", likes: 16, reposts: 2 },
         { id: 2, message: "News about Captain America", likes: 15, reposts: 3 }
     ],
-    profile: [
-        { id: 1, name: "My Group", avatar: "https://cdn.27.ua/sc--media--prod/default/82/13/ed/8213edef-2996-4de1-a9ea-fd07d08d3e21.jpeg" },
-    ],
-    newPostText: '',
     profile:null,
-    status:''
+    status:'',
+    notifications:null
 };
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
-            let newNews = {
+            let addNews = {
                 id: 6,
-                message: state.newPostText,
+                message: action.postMessage,
                 likes: 0,
                 reposts: 0
 
             }
             let stateCopy = { ...state };
             stateCopy.post = [ ...state.post ]
-            stateCopy.post.unshift(newNews);
+            stateCopy.post.unshift(addNews);
             stateCopy.newPostText = '';
             return stateCopy;
-        case UPDATE_NEW_POST_TEXT:
-            {
-                let stateCopy = { ...state };
-                stateCopy.post = [ ...state.post ]
-                stateCopy.newPostText = action.newText;
-                return stateCopy;
-            }
+            
         case SET_USER_PROFILE:
             return{
                 ...state,
@@ -78,6 +79,11 @@ const profileReducer = (state = initialState, action) => {
             return{
                 ...state,
                 status: action.status
+            }
+        case SET_PHOTO:
+            return{
+                ...state,
+                profile: {...state.profile, photos:action.photos}
             }
         default:
             return state;

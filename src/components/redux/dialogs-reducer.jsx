@@ -1,9 +1,6 @@
-
 const SEND_MESSAGE = 'SEND_MESSAGE';
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
-export const newMessageBody = (body) => ({ type: UPDATE_NEW_MESSAGE_BODY, newMessage: body });
 
-export const sendMessage = () => ({ type: SEND_MESSAGE });
+export const sendMessage = (message) => ({ type: SEND_MESSAGE,message  });
 
 let initialState = {
     dialogs: [
@@ -13,7 +10,6 @@ let initialState = {
       { id: 4, name: "Nazar", avatar: "https://www.liga.net/images/general/2019/02/14/20190214174619-9721.png", message: "How old r u?" },
       { id: 5, name: "Andrey", avatar: "https://ic.pics.livejournal.com/kabzon/7182730/3079824/3079824_600.png", message: "Hi,what is your name?" }
     ],
-    newMessageBody: ''
   }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -23,7 +19,7 @@ const dialogsReducer = (state = initialState, action) => {
                 name: "Andrey",
                 avatar: "https://ic.pics.livejournal.com/kabzon/7182730/3079824/3079824_600.png",
                 id: 7,
-                message: state.newMessageBody,
+                message:action.message
 
             }
             let stateCopy = {...state};
@@ -31,15 +27,6 @@ const dialogsReducer = (state = initialState, action) => {
             stateCopy.dialogs = [...state.dialogs]
             stateCopy.dialogs.unshift(newMessage);
             return stateCopy;
-
-        case UPDATE_NEW_MESSAGE_BODY:
-            {
-                let stateCopy = {...state};
-                stateCopy.dialogs= [...state.dialogs]
-                stateCopy.newMessageBody = action.newMessage;
-                return stateCopy;
-            }
-
         default:
             return state;
     }

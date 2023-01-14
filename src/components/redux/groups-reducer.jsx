@@ -1,3 +1,4 @@
+import { updateObjectInArray } from "../utils/object-helpers";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -26,26 +27,13 @@ const groupsReducer = (state = initialState, action) => {
         case FOLLOW: {
             return{
                 ...state,
-                groups: state.groups.map(g => {
-                    if (g.id === action.groupId) {
-                        return {
-                            ...g, followed: true
-                        }
-                    }
-                    return g;
-                }
-                )
+                groups: updateObjectInArray(state.groups,'id',action.groupId,{followed:true})
             };
         }
         case UNFOLLOW: {
             return{
                 ...state,
-                groups: state.groups.map(g => {
-                    if (g.id === action.groupId) {
-                        return { ...g, followed: false }
-                    }
-                    return g;
-                })
+                groups: updateObjectInArray(state.groups,'id',action.groupId,{followed:false})
             };
         }
         case SET_GROUPS:{

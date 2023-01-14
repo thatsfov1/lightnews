@@ -28,17 +28,34 @@ export const usersAPI ={
             return response.data;
             })
     },
+    getUserProfile(id){
+        return instance.get(`profile/${id}`)
+    }
 }
 
 export const profileAPI = {
     getStatus(id){
         return instance.get(`profile/status/${id}`)
-        
     },
 
     updateStatus(status){
-        return instance.put(`profile/status/`,{status})
+        return instance.put(`profile/status`,{status})
     },
+
+    saveProfileInfo(profile){
+        return instance.put(`profile`,profile)
+    },
+
+    savePhoto(imageFile){
+        const formData = new FormData()
+        formData.append('image', imageFile)
+        return instance.put(`profile/photo`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+    },
+
 }
 export const authAPI={
     getAuth(){
@@ -47,4 +64,22 @@ export const authAPI={
                 return response.data;
                 })
     },
+    login(email, password, rememberMe=false,captcha=null){
+        return instance.post('auth/login', {email, password, rememberMe,captcha})
+        .then(response =>{
+            return response.data
+        })
+    },
+    logout(){
+        return instance.delete('auth/login')
+        .then(response =>{
+            return response.data
+        })
+    }
+}
+
+export const securityAPI={
+    getCaptcha(){
+        return instance.get('/security/get-captcha-url')
+    }
 }

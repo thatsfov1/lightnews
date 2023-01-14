@@ -1,6 +1,6 @@
 
 import { connect } from "react-redux";
-import { follow, setGroup, unfollow } from "../redux/groups-reduser";
+import { follow, setGroup, unfollow } from "../redux/groups-reducer";
 import Groups from "./Groups";
 
 const mapStateToProps = (state) =>{

@@ -3,34 +3,20 @@ import { NavLink } from "react-router-dom";
 import classes from "./Friends.module.css";
 import FriendsSearch from "./FriendsSearch";
 import userphoto from '../../assets/userphoto.png'
+import Paginator from "../utils/Paginator";
 
 
 
 const Friends = (props) => {
-
-    let pagesCount = Math.ceil(props.totalCount / props.pageSize)
-
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    };
-    let curP = props.currentPage;
-    let curPF = ((curP - 5) < 0) ? 0 : curP - 5;
-    let curPL = curP + 5;
-    let slicedPages = pages.slice(curPF, curPL);
-
 
     return <div className={classes.friends}>
         <FriendsSearch />
         <div className={classes.name}> Friends:
         </div>
         <div className={classes.totalPage}>
-            {slicedPages.map(p => {
 
-                return <span className={props.currentPage === p ? classes.selectedPage : undefined}
+            <Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged} pageSize={props.pageSize} totalCount={props.totalCount}/>
 
-                    onClick={(e) => { props.onPageChanged(p) }}> {p}</span>
-            })}
         </div>
         <div className={classes.friendname}>{
             props.friends.map(fr => <div key={fr.id} className={classes.friend + ' ' + classes.active}>

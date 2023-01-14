@@ -1,4 +1,5 @@
 import classes from './GroupSearch.module.css'
+import React from 'react';
 
 const GroupSearch = () => {
     return <div>

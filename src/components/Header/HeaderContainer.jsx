@@ -1,31 +1,24 @@
-import axios from "axios";
 import React from "react";
-import { connect } from "react-redux";
-import { setAuthUserData,authSuccess } from "../redux/auth-reduser";
+import {connect} from "react-redux";
+import {logout, setAuthUserData} from "../redux/auth-reducer";
 import Header from "./Header";
+import {userProfile} from "../redux/profile-reducer";
 
 
-class HeaderContainer extends React.Component {
-    componentDidMount() {
-        this.props.authSuccess()
-    }
+const HeaderContainer = (props) =>{
 
-    render() {
-        return <>
-        
-            <Header {...this.props}/>
-        </>
-
-
-    }
+    return <>
+        <Header {...props}/>
+    </>
 }
 
 const mapStateToProps = (state) => {
     return {
         login:state.auth.login,
         isAuth:state.auth.isAuth,
+        notifications:state.profilePage.notifications
     }
 }
 export default connect(mapStateToProps,
-     {setAuthUserData ,authSuccess})
+     {setAuthUserData,userProfile ,logout})
      (HeaderContainer);
