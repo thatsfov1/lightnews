@@ -1,24 +1,23 @@
-import classes from './Page.module.css';
-import React, {useEffect, useState} from 'react';
-import Status from './Status';
+import s from './Page.module.css';
+import React from 'react';
 import ProfileInfo from './MyPosts/ProfileInfo';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
-import {saveChangesProfile} from "../redux/profile-reducer";
 
 
 
-const Page = (props) => {
+const Page = ({profile, status, saveChangesProfile,
+                savePhoto, updateStatus, id}) => {
 
-  return <div className={classes.content}>
-    <div className={classes.info}>
-      <ProfileInfo profile={props.profile} id={props.id}
-                   savePhoto ={props.savePhoto} status={props.status}
-                   updateStatus={props.updateStatus} saveChangesProfile={props.saveChangesProfile}
+  return <div className={s.content}>
+    <div className={s.info}>
+      <ProfileInfo profile={profile} id={id}
+                   savePhoto ={savePhoto} status={status}
+                   updateStatus={updateStatus} saveChangesProfile={saveChangesProfile}
       />
        </div>
     <br />
     <div>
-      {props.id ===26582 && <MyPostsContainer/> }
+      {id === 26582 && <MyPostsContainer/> }
     </div>
 
 

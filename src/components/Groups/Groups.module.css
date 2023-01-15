@@ -100,13 +100,6 @@
     border: 10px solid white;
 }
 
-.search {
-    grid-area: s;
-}
-
-.group {
-    float: left;
-}
 
 .info {
     color: rgb(163, 163, 163);
