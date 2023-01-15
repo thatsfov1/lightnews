@@ -1,15 +1,12 @@
-import { Field, Form, Formik } from "formik";
 import React, {useState} from "react";
-import * as yup from 'yup'
-import DialogsItem from "../DialogsItem/DialogsItem";
 import s from "./Dialogs.module.css";
 import DialogsForm from "./DialogsForm";
 import {faker} from "@faker-js/faker";
-import {HiOutlineStatusOnline} from "react-icons/all";
+import { HiOutlineStatusOnline} from "react-icons/all";
 
 
 
-const Dialogs = ({dialogsPage,sendMessage}) => {
+const Dialogs = ({messages,sendMessage}) => {
 
     const [online, setOnline] = useState(false);
 
@@ -30,12 +27,17 @@ const Dialogs = ({dialogsPage,sendMessage}) => {
                 </div>
             </div>
         </div>
-        <div>
-            {dialogsPage.dialogs.map(d => <DialogsItem id={d.id} key={d.id} name={d.name}
-                                                       avatar={d.avatar} message={d.message} />)
-            }
+        <div className={s.chat}>
+            {messages.map(m => (
+                <span className={m.fromMe ? s.message_container + ' ' +  s.fromMe  : s.message_container + ' ' + s.fromFriend}>
+                    <span className={m.fromMe ? s.message_body : null}>
+                        <span className={s.message}>{m.message}</span>
+                        <span className={m.fromMe ? s.time_fromMe +" "+ s.message_time :s.message_time}>{m.time}</span>
+                    </span>
+                </span>
+            ))}
         </div>
-        <div className={s.areamessages}>
+        <div>
             <DialogsForm sendMessage={sendMessage}/>
         </div>
     </div>

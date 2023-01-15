@@ -9,19 +9,11 @@ import Dialogs from "./Dialogs";
 
 const mapStateToProps = (state) =>{
     return{
-        dialogsPage:state.dialogsPage,
-    }
-}
-
-const mapDispatchToProps = (dispatch) =>{
-    return {
-        sendMessage: (message) =>{
-            dispatch(sendMessage(message))
-        }
+        messages:state.dialogsPage.messages,
     }
 }
 
 export default compose(
     withAuthRedirect,connect(mapStateToProps,
-        mapDispatchToProps))
-    (Dialogs);;
+        {sendMessage}))
+    (Dialogs);

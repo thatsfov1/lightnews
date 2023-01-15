@@ -1,51 +1,128 @@
 .avatar img {
-    width: 40px;
-    height: 40px;
-    border-radius: 1000px;
-   
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
-.container{
-    width: 100%;
+.container {
+    width: 85%;
     height: 600px;
     overflow-y: scroll;
     background-color: white;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+
+}
+
+.header {
+    display: flex;
+    padding: 10px;
+    background-color: #0056fe;
+    box-shadow: 1px 4px 12px -2px rgba(0, 0, 0, 0.1);
+    color: white;
+    width: 85%;
+    position: fixed;
+    border-radius: 5px 5px 0 0;
+}
+
+.user_info{
+    margin-left: 10px;
+}
+
+.name{
+    font-weight: 500;
+}
+
+.last_online{
+    font-size: 12px;
+}
+
+.chat {
+    flex: 1 1 auto;
+    padding: 10px;
+    display: flex;
+    margin-top: 70px;
+    flex-direction: column;
+}
+
+.message_container {
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
+    max-width: 60%;
+}
+
+.fromFriend {
+    background-color: #edf2ff;
+    margin-right: auto;
+}
+
+.fromMe {
+    background-color: #0056fe;
+    color: #fff;
+    margin-left: auto;
+}
+
+.message_body{
+    text-align: right;
+}
+
+.message{
+    text-align: right;
+}
+
+.message_time{
+    display: block;
+    font-size: 12px;
+}
+
+.time_fromMe{
+    text-align: right;
+}
+
+.send_message {
+    padding: 10px;
+    display: flex;
+    width: 85%;
+    gap: 10px;
+    position: fixed;
+    bottom: 50px;
+    border-radius: 0 0 5px 5px;
+    background-color: rgba(255,255,255,0.5);
+    align-items: center;
 }
 
 
-.input{
-    width: 180px;
-    padding: 10px 30px 10px 15px;
+.input {
     border: none;
-    border-radius: 15px;
+    border-radius: 20px;
+    padding: 10px;
     outline: none;
-    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
-    resize: none;
+    background-color: #edf2ff;
+    flex: 1 1 auto;
 }
 
-.areamessages{
-    padding-left: 300px;
-}
-.button{
-    margin-left: 15px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(23, 58, 108);
-    border: none;
-    border-radius: 10px;
-    box-sizing: border-box;
-    position: relative;
-    padding: 5px 15px;
-    transition-duration: .2s;
-    animation-name:button ;
-    animation-duration: .1s ;
+.send {
+    color: white;
+    background-color: #0056fe;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@keyframes button {
-    from { opacity: 0; }
-  to { opacity: 1; }
+.voice {
+    background-color: #eee;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999999;
 }
 
-.button:hover{
-    transform: scale(1.05);
-}

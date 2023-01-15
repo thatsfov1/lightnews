@@ -2,6 +2,7 @@ import * as yup from "yup";
 import {Field, Form, Formik} from "formik";
 import s from "./Dialogs.module.css";
 import React from "react";
+import {BiRightArrowAlt, MdKeyboardVoice} from "react-icons/all";
 
 const DialogsForm =({sendMessage})=>{
 
@@ -17,21 +18,27 @@ const DialogsForm =({sendMessage})=>{
         validateOnBlur
         onSubmit={(values,{resetForm})=>{
             sendMessage(values.message)
-            resetForm({values:''})
+            resetForm({values:''},
+            )
         }}
         validationSchema={validationSchema}
     >
         {({values, errors, handleChange,handleSubmit})=>(
-            <Form className={s.form}>
-                <div>
-                    <Field as='textarea' type="text"
+            <Form >
+                <div className={s.send_message}>
+                    <div className={s.voice}><MdKeyboardVoice size={20} /></div>
+                    <Field type="text"
                            className={s.input}
                            name="message"
                            placeholder="Write your message..."
                            value={values.message}
                            onChange={handleChange} />
-                    {values.message && <button className={s.button} type={'submit'} onClick={handleSubmit} >Send</button>}
-                    {errors.message && <p className={s.errors}>{errors.message}</p>}
+                        {values.message && <div type={'submit'} onClick={handleSubmit} className={s.send}>
+                            <BiRightArrowAlt size={25}/>
+                        </div>}
+                    {errors.message && <p className={s.errors}>
+                        {errors.message}
+                    </p>}
                 </div>
             </Form>
         )}
