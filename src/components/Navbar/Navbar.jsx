@@ -21,7 +21,7 @@ export const NavbarFeeds = () => {
         </div>
         <div className={s.item}>
           <div className={s.item_logo + " " + s.profile}><IoPersonOutline size={20}/></div>
-          <NavLink to="/profile"> My Profile</NavLink>
+          <NavLink to="/profile/26582"> My Profile</NavLink>
         </div>
         <div className={s.item}>
           <div className={s.item_logo + " " + s.dialogs}><BsChatRightDots size={20}/></div>

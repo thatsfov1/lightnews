@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import s from "./Dialogs.module.css";
 import DialogsForm from "./DialogsForm";
 import {faker} from "@faker-js/faker";
@@ -9,6 +9,20 @@ import { HiOutlineStatusOnline} from "react-icons/all";
 const Dialogs = ({messages,sendMessage}) => {
 
     const [online, setOnline] = useState(false);
+
+    const messagesEndRef = useRef(null)
+
+    const scrollToBottom = () => {
+        if( messagesEndRef.current){
+            messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
+        }
+
+    }
+
+    useEffect(() => {
+        scrollToBottom()
+    }, [messages]);
+
 
 
     return <div className={s.container}>
@@ -27,7 +41,7 @@ const Dialogs = ({messages,sendMessage}) => {
                 </div>
             </div>
         </div>
-        <div className={s.chat}>
+        <div  className={s.chat}>
             {messages.map(m => (
                 <span className={m.fromMe ? s.message_container + ' ' +  s.fromMe  : s.message_container + ' ' + s.fromFriend}>
                     <span className={m.fromMe ? s.message_body : null}>
@@ -36,7 +50,8 @@ const Dialogs = ({messages,sendMessage}) => {
                     </span>
                 </span>
             ))}
-        </div>
+            <div ref={messagesEndRef}/>
+        </div >
         <div>
             <DialogsForm sendMessage={sendMessage}/>
         </div>

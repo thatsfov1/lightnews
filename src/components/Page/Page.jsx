@@ -15,10 +15,6 @@ const Page = ({profile, status, saveChangesProfile,
                    updateStatus={updateStatus} saveChangesProfile={saveChangesProfile}
       />
        </div>
-    <br />
-    <div>
-      {id === 26582 && <MyPostsContainer/> }
-    </div>
 
 
 

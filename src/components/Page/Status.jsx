@@ -25,7 +25,7 @@ const Status =(props)=>{
 
         return <div>
         {!editMode && 
-         <div className={classes.status_text}>
+         <div>
                 <span onDoubleClick={activateEditMode}>{props.status || "No status"}</span>
          </div>
         }
