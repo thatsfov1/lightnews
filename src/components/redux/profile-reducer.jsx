@@ -1,4 +1,5 @@
 import {profileAPI, usersAPI} from "../api/api";
+import {faker} from "@faker-js/faker";
 
 export const addNews = (postMessage) => ({ type: ADD_POST, postMessage });
 
@@ -44,10 +45,12 @@ export const saveChangesProfile = (profile) => async (dispatch,getState) => {
 
 
 let initialState = {
-    post: [
-        { id: 1, message: "News about Spider-Man", likes: 16, reposts: 2 },
-        { id: 2, message: "News about Captain America", likes: 15, reposts: 3 }
-    ],
+    post: [...Array(6)].map(()=> ({
+        id:faker.datatype.uuid,
+        likes:faker.datatype.number({ min: 1, max: 10, precision: 0.1 }),
+        comments:faker.datatype.number(100),
+        message:faker.lorem.sentences(5),
+    })),
     profile:null,
     status:'',
     notifications:null
@@ -57,10 +60,10 @@ const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let addNews = {
-                id: 6,
+                id: faker.datatype.uuid(),
                 message: action.postMessage,
                 likes: 0,
-                reposts: 0
+                comments: 0
 
             }
             let stateCopy = { ...state };

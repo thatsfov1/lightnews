@@ -36,7 +36,7 @@ const mapStateToProps = (state) =>{
     return{
         profile:state.profilePage.profile,
         status:state.profilePage.status,
-        email:state.auth.email
+        email:state.auth.email,
     }
 }
 export default compose(
