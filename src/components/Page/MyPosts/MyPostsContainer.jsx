@@ -1,4 +1,4 @@
-import { addNews} from '../../redux/profile-reducer';
+import { addPost} from '../../redux/profile-reducer';
 import MyPosts from './MyPosts';
 import { connect } from 'react-redux';
 
@@ -13,7 +13,7 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps = (dispatch) =>{
   return {
       addNews: (postMessage) =>{
-          dispatch(addNews(postMessage))
+          dispatch(addPost(postMessage))
       }
   }
 }

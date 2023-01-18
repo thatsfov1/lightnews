@@ -14,11 +14,11 @@ import {compose} from 'redux';
 import {connect} from 'react-redux';
 import {initialize} from './components/redux/app-reducer';
 import Preloader from './components/common/Preloader';
-import About from "./components/Page/PageCategories/About";
-import Info from "./components/Page/PageCategories/Info";
-import Friends from "./components/Page/PageCategories/Friends";
-import Videos from "./components/Page/PageCategories/Videos";
-import Photos from "./components/Page/PageCategories/Photos";
+import About from "./components/Page/PageCategories/About/About";
+import Info from "./components/Page/PageCategories/Info/Info";
+import Friends from "./components/Page/PageCategories/Friends/Friends";
+import Videos from "./components/Page/PageCategories/Videos/Videos";
+import Photos from "./components/Page/PageCategories/Photos/Photos";
 
 const Weather = React.lazy(() => import('./components/Weather/Weather'));
 const Politics = React.lazy(() => import('./components/Politics/Politics'));

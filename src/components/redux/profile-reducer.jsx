@@ -1,7 +1,7 @@
 import {profileAPI, usersAPI} from "../api/api";
 import {faker} from "@faker-js/faker";
 
-export const addNews = (postMessage) => ({ type: ADD_POST, postMessage });
+export const addPost = (postMessage) => ({ type: ADD_POST, postMessage });
 
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile});
 export const setUserStatus = (status) => ({ type: SET_USER_STATUS, status});
@@ -59,16 +59,15 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
-            let addNews = {
+            let addPost = {
                 id: faker.datatype.uuid(),
                 message: action.postMessage,
                 likes: 0,
-                comments: 0
-
+                comments: 0,
             }
             let stateCopy = { ...state };
             stateCopy.post = [ ...state.post ]
-            stateCopy.post.unshift(addNews);
+            stateCopy.post.unshift(addPost);
             stateCopy.newPostText = '';
             return stateCopy;
             

@@ -13,9 +13,11 @@ import {
     FiVideo
 } from "react-icons/all";
 import {connect} from "react-redux";
-import userphoto from '../../../assets/userphoto.png';
+import userphoto from '../../../../assets/userphoto.png';
+import CreatePost from "./CreatePost";
+import {addPost} from "../../../redux/profile-reducer";
 
-const About = ({profile,post}) => {
+const About = ({profile,post,addPost}) => {
 
     const profilePhotos = [...Array(6)].map(() => faker.image.abstract())
 
@@ -61,7 +63,7 @@ const About = ({profile,post}) => {
                     </span>
                     <div className={s.all_friends}>
                         {
-                            [...Array(9)].map(() => <div className={s.single_friend}>
+                            [...Array(9)].map(() => <div  className={s.single_friend}>
                                     <img src={userphoto}/>
                                     <span style={{fontSize:'14px',fontWeight:500}}>{faker.name.fullName()}</span>
                             </div>
@@ -71,46 +73,7 @@ const About = ({profile,post}) => {
                 </div>
             </div>
             <div className={s.posts_container}> {/* ALL POSTS + CREATE POST CONTAINER */}
-                <div className={s.body_container}>
-                    <span className={s.create_post_title}>
-                        <span className={s.create_post_title_icon}>
-                            <AiOutlineEdit color='#2074fc' size={15}/>
-                        </span>
-                        <span className={s.create_post_title_text}>
-                            Create Post
-                        </span>
-                    </span>
-                    <div className={s.input_container}>
-                        <input placeholder="What's on your mind?" className={s.input}/>
-                        <img className={s.input_avatar} src={profile.photos.small || userphoto}/>
-                    </div>
-                    <div className={s.create_post_tools}>
-                        <span className={s.tool_container}>
-                            <span className={s.tool_icon}>
-                                <FiVideo color='#CC0000' size={25}/>
-                            </span>
-                            <span className={s.tool_text}>
-                                Live Video
-                            </span>
-                        </span>
-                        <span className={s.tool_container}>
-                            <span className={s.tool_icon}>
-                                <FiImage color='#14D876' size={25}/>
-                            </span>
-                            <span className={s.tool_text}>
-                                Photo/Video
-                            </span>
-                        </span>
-                        <span className={s.tool_container}>
-                            <span className={s.tool_icon}>
-                                <FiCamera color='#ff9331' size={25}/>
-                            </span>
-                            <span className={s.tool_text}>
-                                Feeling/Activity
-                            </span>
-                        </span>
-                    </div>
-                </div>
+                <CreatePost addPost={addPost} profile={profile}/>
                 <div className={s.posts}> {/*ALL POSTS*/}
                     {post.map(p => (
                         <div className={s.body_container}>
@@ -163,4 +126,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps,null)(About)
+export default connect(mapStateToProps,{addPost})(About)
