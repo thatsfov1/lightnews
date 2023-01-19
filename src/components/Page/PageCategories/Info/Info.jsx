@@ -9,8 +9,41 @@ const Info = ({profile}) => {
                 Info
             </div>
             <div className={s.info_container}>
-
+                <div>
+                    <div className={s.contacts_main_title}>
+                        About me
+                    </div>
+                    <div className={s.info_box}>
+                        <div className={s.contacts_title}>
+                            {profile.aboutMe}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <span className={s.contacts_main_title}>
+                    Websites and social networks
+                </span>
+                    <div className={s.info_box}>
+                        {Object.keys(profile.contacts).map((title) => (
+                            <div className={s.contacts_title}>{title} - {profile.contacts[title] ?
+                                <a target="_blank" href={profile.contacts[title]}>{profile.contacts[title]}</a> : "No yet" } </div>))
+                        }
+                    </div>
             </div>
+                <div>
+                    <span className={s.contacts_main_title}>
+                        Job
+                    </span>
+                    <div className={s.info_box}>
+                        <div className={s.contacts_title}>
+                            Is looking for  a job - {profile.lookingForAJob ? 'Yes' : 'No'}
+                        </div>
+                        {profile.lookingForAJob && <div className={s.contacts_title}>
+                            My skills - {profile.lookingForAJobDescription}
+                        </div>}
+                    </div>
+                </div>
+    </div>
     </div>
   )
 }

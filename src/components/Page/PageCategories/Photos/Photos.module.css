@@ -1,0 +1,45 @@
+.container{
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.add_container{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.add_icon{
+    background-color: rgba(0, 86, 254, 0.27);
+    color: #0056fe;
+    padding: 2px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.add_title{
+    color: #0056fe;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.photos_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.single_photo{
+    width: 24%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}

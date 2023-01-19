@@ -71,6 +71,7 @@
 
 .message{
     text-align: right;
+    word-wrap: break-word;
 }
 
 .message_time{
