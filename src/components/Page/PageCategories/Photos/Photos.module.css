@@ -36,10 +36,24 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    position: relative;
+}
+
+.single_photo_modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:40%;
 }
 
 .single_photo{
     width: 24%;
+    cursor: pointer;
+}
+
+.single_photo img{
+    width: 100%;
     border-radius: 10px;
     margin-bottom: 10px;
 }

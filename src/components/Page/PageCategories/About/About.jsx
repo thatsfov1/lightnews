@@ -16,6 +16,7 @@ import {connect} from "react-redux";
 import userphoto from '../../../../assets/userphoto.png';
 import CreatePost from "./CreatePost";
 import {addPost} from "../../../redux/profile-reducer";
+import SinglePost from "./SinglePost";
 
 const About = ({profile,post,addPost}) => {
 
@@ -74,43 +75,7 @@ const About = ({profile,post,addPost}) => {
             </div>
             <div className={s.posts_container}> {/* ALL POSTS + CREATE POST CONTAINER */}
                 <CreatePost addPost={addPost} profile={profile}/>
-                <div className={s.posts}> {/*ALL POSTS*/}
-                    {post.map(p => (
-                        <div className={s.body_container}>
-                            <span className={s.by_container}>
-                                <span className={s.by_avatar}>
-                                    <img src={profile.photos.large || userphoto}/>
-                                </span>
-                                <div className={s.by_name}>
-                                    <div className={s.by_name_nick}>{profile.fullName}</div>
-                                    <div className={s.create_post_title_text}>{faker.datatype.number({min: 1, max: 16})} hours ago</div>
-                                </div>
-                            </span>
-                            <div className={s.post_message}>
-                                {p.message}
-                            </div>
-                            <div className={s.activity}>
-                                <div className={s.activity_left}>
-                                    <span className={s.activity_like}>
-                                    <BiLike size={15} color='white'/>
-                                </span>
-                                    <span className={s.activity_heart}>
-                                    <BiHeart size={15} color='white'/>
-                                </span>
-                                    {p.likes}K Likes
-                                    <span>
-                                    <FaRegComment size={20}/> {p.comments} Comments
-                                </span>
-                                </div>
-                                <div className={s.activity_right}>
-                                    <span>
-                                        <FiShare2 size={20}/> Share
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                <SinglePost post={post} profile={profile}/>
             </div>
         </div>
     )
@@ -119,8 +84,9 @@ const About = ({profile,post,addPost}) => {
 
 const mapStateToProps = (state) => {
   return{
-      profile:state.profilePage.profile,
-      post:state.profilePage.post
+      post:state.profilePage.post,
+      profile:state.profilePage.profile
+
   }
 }
 

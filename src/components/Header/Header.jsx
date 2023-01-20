@@ -18,7 +18,7 @@ const Header = ({isAuth, login, notifications}) => {
                 <BsSearch className={s.input_icon} size={25} />
                 <input placeholder='Start typing to search...' className={s.input}/>
             </div>
-            {isAuth && <Link to='/home' className={s.icon}>
+            {isAuth && <Link to='/' className={s.icon}>
                 <BsHouseDoor size={20} />
             </Link>}
         </div>

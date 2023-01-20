@@ -19,6 +19,7 @@ import Info from "./components/Page/PageCategories/Info/Info";
 import Friends from "./components/Page/PageCategories/Friends/Friends";
 import Videos from "./components/Page/PageCategories/Videos/Videos";
 import Photos from "./components/Page/PageCategories/Photos/Photos";
+import Home from "./components/Home/Home";
 
 const Weather = React.lazy(() => import('./components/Weather/Weather'));
 const Politics = React.lazy(() => import('./components/Politics/Politics'));
@@ -50,7 +51,7 @@ class App extends React.Component {
                         style={{display: "flex", width: "100%", alignItems: "center", justifyContent: "center"}}>
                         <Preloader/></div>}>
                         <Routes>
-                            <Route path='/' exact element={<p>dldl</p>}/>
+                            <Route path='/' exact element={<Home/>}/>
                             <Route path="/groups" element={<GroupsContainer/>}/>
                             <Route path="/dialogs/*" element={<DialogsContainer/>}/>
                             <Route path="/users/" element={<UsersContainer/>}/>

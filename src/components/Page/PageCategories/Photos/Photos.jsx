@@ -2,6 +2,7 @@ import React from 'react'
 import s from './Photos.module.css'
 import {IoMdAdd} from "react-icons/all";
 import {faker} from "@faker-js/faker";
+import BasicModal from "./Modal";
 
 const Photos = () => {
 
@@ -15,7 +16,9 @@ const Photos = () => {
           </div>
       </div>
         <div className={s.photos_container}>
-            {[...Array(16)].map(() => <img className={s.single_photo} src={faker.image.abstract()}/>)}
+            {[...Array(16)].map(() => <BasicModal>
+                <img src={faker.image.abstract()}/>
+            </BasicModal> ) }
         </div>
     </div>
   )
