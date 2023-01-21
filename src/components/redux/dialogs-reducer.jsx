@@ -17,15 +17,14 @@ let initialState = {
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE:
-            let newMessage = {
+            const newMessage = {
                 id: faker.datatype.uuid(),
                 fromMe:true,
                 message:action.message,
                 time:new Date().toLocaleTimeString().slice(0,5)
-
             }
 
-            let stateCopy = {...state};
+            const stateCopy = {...state};
             stateCopy.newMessageBody = '';
             stateCopy.messages = [...state.messages]
             stateCopy.messages.push(newMessage);

@@ -6,6 +6,7 @@ import groupsReducer from "./groups-reducer";
 import profileReducer from "./profile-reducer";
 import thunkMiddleware from "redux-thunk"
 import appReducer from "./app-reducer";
+import homeReducer from "./home-reducer";
 
 let reducers =combineReducers({
     profilePage:profileReducer,
@@ -14,6 +15,7 @@ let reducers =combineReducers({
     friendsPage:friendsReducer,
     auth:authReducer,
     app:appReducer,
+    homePage:homeReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
