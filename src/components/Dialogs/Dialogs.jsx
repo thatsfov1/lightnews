@@ -4,8 +4,6 @@ import DialogsForm from "./DialogsForm";
 import {faker} from "@faker-js/faker";
 import { HiOutlineStatusOnline} from "react-icons/all";
 
-
-
 const Dialogs = ({messages,sendMessage}) => {
 
     const [online, setOnline] = useState(false);
@@ -16,14 +14,11 @@ const Dialogs = ({messages,sendMessage}) => {
         if( messagesEndRef.current){
             messagesEndRef.current.scrollIntoView({ behavior: "smooth" })
         }
-
     }
 
     useEffect(() => {
         scrollToBottom()
     }, [messages]);
-
-
 
     return <div className={s.container}>
         <div className={s.header}>

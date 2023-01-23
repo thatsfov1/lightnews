@@ -15,7 +15,7 @@ const Info = ({profile}) => {
                     </div>
                     <div className={s.info_box}>
                         <div className={s.contacts_title}>
-                            {profile.aboutMe}
+                            {profile.aboutMe || 'No info yet'}
                         </div>
                     </div>
                 </div>
@@ -53,6 +53,5 @@ const mapStateToProps = (state) => {
       profile: state.profilePage.profile
   }
 }
-
 
 export default connect(mapStateToProps, null)(Info)

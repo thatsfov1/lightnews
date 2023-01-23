@@ -1,6 +1,6 @@
 import s from './Header.module.css'
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {SiReactos} from "react-icons/si";
 import {BsBell, BsChatDots, BsHouseDoor, BsSearch} from "react-icons/bs";
 
@@ -9,8 +9,10 @@ const Header = ({isAuth, login, notifications}) => {
 
     const [showNotifications, setShowNotifications] = useState(false);
 
+    const navigate = useNavigate()
+
     return <header className={s.container}>
-        <div className={s.logo}>
+        <div onClick={() => navigate('/')} className={s.logo}>
             <SiReactos color='#ADD9E5' size={30}/> <span className={s.logo_text}>MeetFriend</span>
         </div>
         <div style={{display:"flex" ,gap:10}}>

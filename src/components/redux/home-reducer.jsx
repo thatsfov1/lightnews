@@ -2,8 +2,13 @@ import {faker} from "@faker-js/faker";
 
 const DELETE_SUGGEST_FRIEND = 'home-reducer/DELETE_SUGGEST_FRIEND'
 const ADD_EVENT = 'home-reducer/ADD_EVENT'
+const DELETE_EVENT = 'home-reducer/DELETE_EVENT'
+const TOGGLE_EVENT = 'home-reducer/TOGGLE_EVENT'
+
 
 export const deleteSuggestFriend = (id) => ({ type:DELETE_SUGGEST_FRIEND, id })
+export const deleteEvent = (id) => ({ type:DELETE_EVENT, id })
+export const toggleEvent = (id) => ({ type:TOGGLE_EVENT, id})
 export const addEvent = (title,message,month,day) => ({ type:ADD_EVENT, payload:{title,message,month,day} })
 
 const initialState = {
@@ -51,11 +56,21 @@ const homeReducer = (state = initialState,action) => {
                 message:action.payload.message,
                 month:action.payload.month,
                 day:action.payload.day,
+                completed:false
             }
             const stateCopy = {...state};
             stateCopy.events = [...state.events]
             stateCopy.events.unshift(newEvent);
             return stateCopy
+        case DELETE_EVENT:
+            return{
+                ...state, events: state.events.filter(e => e.id !== action.id)
+            }
+        case TOGGLE_EVENT:
+                return{
+                    ...state, events:
+                        state.events.map(event => event.id === action.id ? {...event, completed:!event.completed}: event )
+                }
         default:
             return state
     }

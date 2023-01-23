@@ -20,6 +20,7 @@ import Friends from "./components/Page/PageCategories/Friends/Friends";
 import Videos from "./components/Page/PageCategories/Videos/Videos";
 import Photos from "./components/Page/PageCategories/Photos/Photos";
 import Home from "./components/Home/Home";
+import EditProfile from "./components/Page/PageCategories/EditProfile/EditProfile";
 
 const Weather = React.lazy(() => import('./components/Weather/Weather'));
 const Politics = React.lazy(() => import('./components/Politics/Politics'));
@@ -55,6 +56,7 @@ class App extends React.Component {
                             <Route path="/groups" element={<GroupsContainer/>}/>
                             <Route path="/dialogs/*" element={<DialogsContainer/>}/>
                             <Route path="/users/" element={<UsersContainer/>}/>
+                            <Route path="/edit" element={<EditProfile/>}/>
                             <Route path="/profile/:id/*" element={<PageContainer/>}>
                                 <Route path='about' element={<About/>}/>
                                 <Route path='info' element={<Info/>}/>

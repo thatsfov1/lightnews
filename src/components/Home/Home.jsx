@@ -1,24 +1,22 @@
-import React, {useState} from 'react'
+import React from 'react'
 import s from './Home.module.css'
 import SinglePost from "../Page/PageCategories/About/SinglePost";
 import {connect} from "react-redux";
 import loading from '../../assets/loading.svg'
-import {addEvent, deleteSuggestFriend} from "../redux/home-reducer";
-import {AiOutlineArrowRight, GrFormAdd} from "react-icons/all";
-import {Input, TextField} from "@mui/material";
-import NewEvent from "./NewEvent";
+import suggest_group from '../../assets/suggest_group.png'
+import {addEvent, deleteEvent, deleteSuggestFriend, toggleEvent} from "../redux/home-reducer";
+import {faker} from "@faker-js/faker";
+import Events from "./Events";
 
-const Home = ({profile,suggestFriends, stories, post, deleteSuggestFriend, events, addEvent}) => {
-
-    const [showNewEvent, setShowNewEvent] = useState(false);
-
+const Home = ({profile,suggestFriends, stories, post, deleteSuggestFriend,
+                  events, addEvent, deleteEvent,toggleEvent}) => {
     return (
     <div className={s.container}>
       <div className={s.main}>
           <div className={s.stories}>
               {stories.map(st => <div className={s.single_story}>
                   <div className={s.single_story_body}>
-                      <img src={st.avatar} className={s.single_story_avatar}/>
+                      <img alt='avatar' src={st.avatar} className={s.single_story_avatar}/>
                       <div className={s.single_story_name}>{st.name}</div>
                   </div>
               </div>)}
@@ -65,39 +63,7 @@ const Home = ({profile,suggestFriends, stories, post, deleteSuggestFriend, event
                 </div>
 
             </div>}
-            <div className={s.side_tool_container}>
-                <div className={s.header}>
-                    <span className={s.header_category}>
-                        Events
-                    </span>
-                    <span onClick={()=> setShowNewEvent(!showNewEvent)} className={s.header_add_icon}>
-                        <GrFormAdd size={20}  color='#ADD9E5'/>
-                    </span>
-                    {showNewEvent && <NewEvent addEvent={addEvent} setShowNewEvent={setShowNewEvent}/>}
-                </div>
-                <div className={s.events_container}>
-                    {events.map((e) => (
-                        <div className={s.single_event}>
-                            <div className={s.date_container}>
-                                <div className={s.event_month}>
-                                    {e.month}
-                                </div>
-                                <div className={s.event_date}>
-                                    {e.day}
-                                </div>
-                            </div>
-                            <div className={s.event_info}>
-                                <b style={{fontSize:'14px'}}>
-                                    {e.title}
-                                </b>
-                                <div style={{color:'#b3bbc1', fontSize:'13px'}}>
-                                    {e.message}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+            <Events events={events} addEvent={addEvent} deleteEvent={deleteEvent} toggleEvent={toggleEvent}/>
             <div className={s.side_tool_container}>
                 <div className={s.header}>
                     <span className={s.header_category}>
@@ -106,6 +72,26 @@ const Home = ({profile,suggestFriends, stories, post, deleteSuggestFriend, event
                     <span className={s.header_see_all}>
                         See All
                     </span>
+                </div>
+                <div className={s.group_suggest_container}>
+                    <div className={s.group_suggest_logo}>
+                        <img alt='logo' src={suggest_group}/>
+                    </div>
+                    <div className={s.group_suggest_info}>
+                        <div className={s.group_suggest_members}>
+                                {[...Array(4)].map(() => (
+                                    <div className={s.members_images}>
+                                        <img alt='avatar' src={faker.internet.avatar()}/>
+                                    </div>
+                                ))}
+                            <div style={{width:"20%", zIndex:1}}><span className={s.members_count}>
+                                +4
+                            </span></div>
+                        </div>
+                        <span style={{color:"#eeeeee",width:"50%", fontWeight:700}}>
+                            Members apply
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,4 +110,4 @@ const mapStateToProps = (state) =>{
 }
 
 
-export default connect(mapStateToProps,{deleteSuggestFriend,addEvent})(Home)
+export default connect(mapStateToProps,{deleteSuggestFriend,addEvent,deleteEvent,toggleEvent})(Home)

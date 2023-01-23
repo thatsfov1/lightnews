@@ -1,40 +1,33 @@
 import React, {useState,useEffect} from "react";
-import classes from "./Page.module.css"
+import s from "./Page.module.css"
 
-const Status =(props)=>{
-    
+const Status =({status,updateStatus})=>{
+
     let [editMode,setEditMode] = useState(false)
-    let [status,setStatus] = useState(props.status)
+    let [statusValue,setStatusValue] = useState(status)
 
     const activateEditMode =()=>{
             setEditMode(true)
         }
      const   deactivateEditMode =()=>{
             setEditMode(false)
-            props.updateStatus(status)
+            updateStatus(statusValue)
         }
 
       const  onStatusChange =(e)=>{
-            setStatus(e.currentTarget.value)
+          setStatusValue(e.currentTarget.value)
         }
 
         useEffect(()=>{
-            setStatus(props.status)
-        },[props.status])
-
+            setStatusValue(status)
+        },[status])
 
         return <div>
-        {!editMode && 
-         <div>
-                <span onDoubleClick={activateEditMode}>{props.status || "No status"}</span>
-         </div>
-        }
-       {editMode && 
-        <div className={classes.status_input}>
-            <input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode} value={status} type="text" />
-        </div>
+       {editMode
+           ? <input className={s.status_input} onChange={onStatusChange}
+                   autoFocus={true} onBlur={deactivateEditMode} value={statusValue} type="text" />
+           : <span onDoubleClick={activateEditMode}>{status || "No status"}</span>
        }
-       
      </div>
     }
     

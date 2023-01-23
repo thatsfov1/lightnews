@@ -34,7 +34,6 @@ const NewEvent = ({addEvent,setShowNewEvent}) => {
             setShowNewEvent(false)
         }
     }
-
   return (
       <div className={s.new_event_container}>
           {error && <div className={s.error}>Fill all blanks</div>}

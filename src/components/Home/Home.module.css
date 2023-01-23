@@ -172,8 +172,23 @@
     align-items: center;
 }
 
+.date_container_completed{
+    width: 30%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #999999;
+}
+
+
 .event_info{
     width: 67%;
+}
+
+.event_info_completed{
+    width: 67%;
+    text-decoration: line-through;
 }
 
 .event_month{
@@ -204,6 +219,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    z-index: 1000;
+    box-shadow: 0px 0px 17px -7px rgba(66, 68, 90, 1);
 }
 
 .new_event_text{
@@ -236,3 +253,50 @@
     justify-content: center;
     font-weight: 500;
 }
+
+.group_suggest_container{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.group_suggest_logo img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.group_suggest_info{
+    display: flex;
+    align-items: center;
+}
+
+.group_suggest_members{
+    display: flex;
+    width: 45%;
+}
+
+.members_images{
+    width: 20%;
+}
+
+
+.members_images img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.members_count{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: gainsboro;
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
