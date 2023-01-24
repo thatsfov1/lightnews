@@ -1,6 +1,6 @@
 import './App.css';
 import React, {Suspense} from 'react';
-import {NavbarAccount, NavbarFeeds, NavbarPages} from './components/Navbar/Navbar';
+import {NavbarAccount, NavbarFeeds} from './components/Navbar/Navbar';
 import {Routes, Route} from 'react-router-dom';
 import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
@@ -9,7 +9,6 @@ import UsersContainer from './components/Users/UsersContainer';
 import PageContainer from './components/Page/PageContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login';
-import CreateProfile from './components/CreateProfile/CreateProfile';
 import {compose} from 'redux';
 import {connect} from 'react-redux';
 import {initialize} from './components/redux/app-reducer';
@@ -21,6 +20,9 @@ import Videos from "./components/Page/PageCategories/Videos/Videos";
 import Photos from "./components/Page/PageCategories/Photos/Photos";
 import Home from "./components/Home/Home";
 import EditProfile from "./components/Page/PageCategories/EditProfile/EditProfile";
+import Help from "./components/Settings/SettingsPages/Help/Help";
+import Cards from "./components/Settings/SettingsPages/Cards";
+import Address from "./components/Settings/SettingsPages/Address";
 
 const Weather = React.lazy(() => import('./components/Weather/Weather'));
 const Politics = React.lazy(() => import('./components/Politics/Politics'));
@@ -38,14 +40,11 @@ class App extends React.Component {
         if (!this.props.initialized) {
             return <Preloader/>
         }
-        return (
-
-            <>
+        return (<>
                 <HeaderContainer/>
                 <div className='app-wrapper'>
                     <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
                         <NavbarFeeds/>
-                        <NavbarPages/>
                         <NavbarAccount/>
                     </div>
                     <div className='container'><Suspense fallback={<div
@@ -58,7 +57,7 @@ class App extends React.Component {
                             <Route path="/users/" element={<UsersContainer/>}/>
                             <Route path="/edit" element={<EditProfile/>}/>
                             <Route path="/profile/:id/*" element={<PageContainer/>}>
-                                <Route path='about' element={<About/>}/>
+                                <Route path='' element={<About/>}/>
                                 <Route path='info' element={<Info/>}/>
                                 <Route path='friends' element={<Friends/>}/>
                                 <Route path='photos' element={<Photos/>}/>
@@ -66,33 +65,23 @@ class App extends React.Component {
                             </Route>
                                 <Route path="/weather/*" element={<Weather/>}/>
                                 <Route path="/politics/*" element={<Politics/>}/>
-                                <Route path="/settings/*" element={<Settings/>}/>
+                                <Route path="/settings" element={<Settings/>}/>
+                                <Route path='/settings/help' element={<Help/>}/>
+                                <Route path='/settings/cards' element={<Cards/>} />
+                                <Route path='/settings/address' element={<Address/>}/>
                                 <Route path="/music/*" element={<Music/>}/>
                                 <Route path="/login" element={<Login/>}/>
-                                <Route path="/createprofile" element={<CreateProfile/>}/>
                         </Routes>
                     </Suspense></div>
                 </div>
             </>
 
-    );
-    }
-    }
-
-
-    const mapStateToProps =(state)=>
-        {
-
+    )}
+}
+    const mapStateToProps =(state)=> {
             return {
                 initialized: state.app.initialized,
-
             }
         }
 
-    export default compose(
-    connect(mapStateToProps,
-        {
-            initialize
-        }
-    ),
-    )(App);
+export default compose(connect(mapStateToProps, {initialize}),)(App);

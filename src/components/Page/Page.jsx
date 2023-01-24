@@ -38,7 +38,7 @@ const Page = ({profile, status, updateStatus,}) => {
                 </div>
             </div>
             <div className={s.tools}>
-                <Link to={`about`}> About</Link>
+                <Link to={``}> About</Link>
                 <Link to={`info`}>Info</Link>
                 <Link to={`friends`}>Friends</Link>
                 <Link to={`photos`}>Photos</Link>

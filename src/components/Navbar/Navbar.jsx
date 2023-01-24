@@ -1,11 +1,11 @@
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import s from './Navbar.module.css'
 import React from 'react';
 import {
-  AiOutlineMail, BsCameraVideo,
-  BsChatRightDots, BsFillChatDotsFill,
-  CgStories,
-  FaUserFriends, GrAnalytics, GrSettingsOption,
+  BsChatRightDots,
+  FaUserFriends,
+  GrAnalytics,
+  GrSettingsOption,
   HiOutlineUserGroup,
   IoPersonOutline
 } from "react-icons/all";
@@ -34,26 +34,6 @@ export const NavbarFeeds = () => {
     </div>
   </div>
   </nav>;
-}
-
-export const NavbarPages = () => {
-  return <nav className={s.nav + ' ' + s.nav_pages}>
-    <span className={s.title} >More Pages</span>
-    <div className={s.items_container}>
-      <div className={s.item}>
-           <AiOutlineMail/>
-        <NavLink to="/politics"> Email</NavLink>
-      </div>
-      <div className={s.item}>
-        <CgStories/>
-          <NavLink to="/music" >Stories</NavLink>
-      </div>
-      <div className={s.item}>
-        <BsCameraVideo/>
-           <NavLink to="/weather" >Streams</NavLink>
-      </div>
-    </div>
-  </nav>
 }
 
 export const NavbarAccount = () => {

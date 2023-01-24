@@ -78,7 +78,7 @@
   position: absolute;
   top: 60px;
   border-radius: 10px;
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -102,4 +102,18 @@
 .account{
   color:#05008C ;
   font-size: 1.3rem;
+}
+
+.login{
+  background-color:rgb(23, 58, 108);
+  border: none;
+  color: white;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 5px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
 }

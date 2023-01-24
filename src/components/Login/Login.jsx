@@ -8,7 +8,7 @@ import { connect } from "react-redux"
 
 const Login = (props) =>{
     
- if(props.isAuth) return <Navigate to={'/profile'}/>
+ if(props.isAuth) return <Navigate to={'/'}/>
     return <div>
             <LoginForm login={props.login} captchaUrl={props.captchaUrl}/>
     </div>
@@ -31,10 +31,9 @@ const LoginForm = (props) =>{
             }
         }
         validateOnBlur
-        onSubmit={(values,{setStatus,setSubmitting,resetForm})=> {
+        onSubmit={(values,{setStatus,setSubmitting})=> {
             props.login(values.email, values.password, values.rememberMe, setStatus, values.captcha)
             setSubmitting(false);
-            resetForm({values:''})
         }} 
         validationSchema={validationSchema}
 

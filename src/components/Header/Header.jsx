@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {SiReactos} from "react-icons/si";
 import {BsBell, BsChatDots, BsHouseDoor, BsSearch} from "react-icons/bs";
+import {BiLogIn} from "react-icons/all";
 
 
 const Header = ({isAuth, login, notifications}) => {
@@ -40,9 +41,7 @@ const Header = ({isAuth, login, notifications}) => {
                 <span className={s.account}>{login}</span>
             </Link>
         </div> : <div>
-            <button className={s.login}>Log in</button>
-            <button className={s.signin}></button>
-
+            <button onClick={() => navigate('/login')} className={s.login}><BiLogIn size={20}/> Log in</button>
         </div>}
     </header>;
 }

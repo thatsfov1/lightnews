@@ -1,4 +1,117 @@
-.settings a {
-    text-decoration:none;
-    color: rgb(4, 4, 129);
+.container{
+    width: 70%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+.title{
+    font-weight: bold;
+    font-size: 14px;
+    color: #b4bdc3;
+}
+
+.item{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #e1e1f0;
+    cursor: pointer;
+}
+
+.item:last-child{
+    border-bottom: 0;
+}
+
+.item_title{
+    font-weight: 500;
+}
+
+.item span{
+    margin-left: auto ;
+    color: #b4bdc3;
+
+}
+
+.item_icon{
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.address_color{
+    background: linear-gradient(42deg, rgba(196,47,0,1) 0%, rgba(236,170,50,1) 51%, rgba(255,243,81,1) 100%);
+}
+
+.card_color{
+    background: linear-gradient(42deg, rgba(255,0,0,1) 0%, rgba(245,93,93,1) 51%, rgba(255,177,177,1) 100%);
+}
+
+.help_color{
+    background: linear-gradient(42deg, rgba(0,162,15,1) 0%, rgba(103,222,68,1) 51%, rgba(177,255,195,1) 100%);
+}
+
+.lock_color{
+    background: linear-gradient(42deg, rgba(108,0,125,1) 0%, rgba(167,68,222,1) 51%, rgba(231,167,255,1) 100%);
+}
+
+.help_container{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.banner{
+    background-color: #4177ff;
+    border-radius: 5px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.banner_title{
+    font-weight: bold;
+    color: white;
+    font-size: 32px;
+}
+
+.banner_info{
+    color: white;
+    margin-bottom: 10px;
+}
+
+.banner_input_container{
+    position: relative;
+}
+
+.banner_input{
+    padding: 10px 60px 10px 40px;
+    border: none;
+}
+
+.banner_input_icon{
+    position: absolute;
+    color: #acb5bd;
+    top: -5px;
+    left: 10px;
+}
+
+.banner_button{
+    border: none;
+    background-color: #0056fe;
+    color: #fff;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
 }

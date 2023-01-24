@@ -270,6 +270,7 @@
 .group_suggest_info{
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .group_suggest_members{
