@@ -25,8 +25,10 @@ const Info = ({profile}) => {
                 </span>
                     <div className={s.info_box}>
                         {Object.keys(profile.contacts).map((title) => (
-                            <div className={s.contacts_title}>{title} - {profile.contacts[title] ?
-                                <a target="_blank" href={profile.contacts[title]}>{profile.contacts[title]}</a> : "No yet" } </div>))
+                            <div key={title} className={s.contacts_title}>{title} - {profile.contacts[title] ?
+                                <a target="_blank" rel="noopener noreferrer" href={profile.contacts[title]}>
+                                    {profile.contacts[title]}
+                                </a> : "No yet" } </div>))
                         }
                     </div>
             </div>

@@ -4,7 +4,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import {AiOutlinePlus} from "react-icons/all";
-import {createMuiTheme, ThemeProvider} from "@mui/material";
+import {createTheme, ThemeProvider} from "@mui/material";
 
 export default function ControlledAccordions() {
     const [expanded, setExpanded] = React.useState(false);
@@ -13,7 +13,7 @@ export default function ControlledAccordions() {
         setExpanded(isExpanded ? panel : false);
     };
 
-    const theme = createMuiTheme({
+    const theme = createTheme({
         typography:{
             fontFamily:[
                 'Montserrat'

@@ -17,7 +17,7 @@ const Photos = () => {
       </div>
         <div className={s.photos_container}>
             {[...Array(16)].map(() => <BasicModal>
-                <img src={faker.image.abstract()}/>
+                <img alt='profile' src={faker.image.abstract()}/>
             </BasicModal> ) }
         </div>
     </div>

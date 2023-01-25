@@ -18,7 +18,7 @@ const Friends = () => {
             <div className={s.friends_body}>
                 {
                     [...Array(24)].map(() => <div className={s.single_friend}>
-                            <img src={userphoto}/>
+                            <img alt='user' src={userphoto}/>
                             <div>
                                 <div style={{fontSize: '18px', fontWeight: 700}}>
                                     {faker.name.fullName()}

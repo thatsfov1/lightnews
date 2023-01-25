@@ -13,6 +13,9 @@ const Help = () => {
   return (
     <div className={s.help_container}>
         <div className={s.banner}>
+            <div onClick={()=> navigate(-1)} className={s.banner_arrow}>
+                <BsArrowLeft size={30}/>
+            </div>
             <div className={s.banner_title}>
                 <div>
                     Welcome!

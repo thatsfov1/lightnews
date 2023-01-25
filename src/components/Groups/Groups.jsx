@@ -33,12 +33,12 @@ const Group = ({follow,unfollow,avatar,id,name,
   return <div className={s.group}>
 
       <div className={s.wallpaper}>
-          <img src={wallpaper} />
+          <img alt='wallpaper' src={wallpaper} />
       </div>
 
       <div className={s.group_info}>
           <div className={s.avatar}>
-              <img src={avatar}/>
+              <img alt='avatar' src={avatar}/>
           </div>
           <div className={s.name_email}>
               <NavLink to={/groups/ + id} >

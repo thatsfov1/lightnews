@@ -2,7 +2,6 @@ import './App.css';
 import React, {Suspense} from 'react';
 import {NavbarAccount, NavbarFeeds} from './components/Navbar/Navbar';
 import {Routes, Route} from 'react-router-dom';
-import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import GroupsContainer from './components/Groups/GroupContainer';
 import UsersContainer from './components/Users/UsersContainer';
@@ -17,16 +16,15 @@ import About from "./components/Page/PageCategories/About/About";
 import Info from "./components/Page/PageCategories/Info/Info";
 import Friends from "./components/Page/PageCategories/Friends/Friends";
 import Videos from "./components/Page/PageCategories/Videos/Videos";
-import Photos from "./components/Page/PageCategories/Photos/Photos";
 import Home from "./components/Home/Home";
 import EditProfile from "./components/Page/PageCategories/EditProfile/EditProfile";
-import Help from "./components/Settings/SettingsPages/Help/Help";
-import Cards from "./components/Settings/SettingsPages/Cards";
-import Address from "./components/Settings/SettingsPages/Address";
 
-const Weather = React.lazy(() => import('./components/Weather/Weather'));
-const Politics = React.lazy(() => import('./components/Politics/Politics'));
-const Music = React.lazy(() => import('./components/Music/Music'));
+
+const Settings = React.lazy(() => import('./components/Settings/Settings'));
+const Help = React.lazy(() => import('./components/Settings/SettingsPages/Help/Help'));
+const Cards = React.lazy(() => import('./components/Settings/SettingsPages/Cards'));
+const Address = React.lazy(() => import('./components/Settings/SettingsPages/Address'));
+const Photos = React.lazy(() => import('./components/Page/PageCategories/Photos/Photos'));
 
 
 class App extends React.Component {
@@ -47,9 +45,11 @@ class App extends React.Component {
                         <NavbarFeeds/>
                         <NavbarAccount/>
                     </div>
-                    <div className='container'><Suspense fallback={<div
+                    <div className='container'>
+                        <Suspense fallback={<div
                         style={{display: "flex", width: "100%", alignItems: "center", justifyContent: "center"}}>
-                        <Preloader/></div>}>
+                        <Preloader/>
+                        </div>}>
                         <Routes>
                             <Route path='/' exact element={<Home/>}/>
                             <Route path="/groups" element={<GroupsContainer/>}/>
@@ -63,16 +63,14 @@ class App extends React.Component {
                                 <Route path='photos' element={<Photos/>}/>
                                 <Route path='videos' element={<Videos/>}/>
                             </Route>
-                                <Route path="/weather/*" element={<Weather/>}/>
-                                <Route path="/politics/*" element={<Politics/>}/>
                                 <Route path="/settings" element={<Settings/>}/>
                                 <Route path='/settings/help' element={<Help/>}/>
                                 <Route path='/settings/cards' element={<Cards/>} />
                                 <Route path='/settings/address' element={<Address/>}/>
-                                <Route path="/music/*" element={<Music/>}/>
                                 <Route path="/login" element={<Login/>}/>
                         </Routes>
-                    </Suspense></div>
+                    </Suspense>
+                    </div>
                 </div>
             </>
 

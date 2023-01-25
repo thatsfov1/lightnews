@@ -1,6 +1,5 @@
 import React from 'react'
 import s from "./About.module.css";
-import userphoto from "../../../../assets/userphoto.png";
 import {faker} from "@faker-js/faker";
 import {BiHeart, BiLike, FaRegComment, FiShare2} from "react-icons/all";
 
@@ -12,7 +11,7 @@ const SinglePost = ({post,profile}) => {
                 <div className={s.body_container}>
                             <span className={s.by_container}>
                                 <span className={s.by_avatar}>
-                                    <img src={profile.photos ? profile.photos.large : profile.avatar}/>
+                                    <img alt='avatar' src={profile.photos ? profile.photos.large : profile.avatar}/>
                                 </span>
                                 <div className={s.by_name}>
                                     <div className={s.by_name_nick}>{profile.fullName}</div>

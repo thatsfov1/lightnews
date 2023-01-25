@@ -17,11 +17,11 @@ const Page = ({profile, status, updateStatus,}) => {
     return <div className={s.container}>
         <div className={s.toolbar}>
             <div className={s.banner}>
-                <img src={nocover}/>
+                <img alt='background' src={nocover}/>
             </div>
             <div className={s.profile}>
                 <div className={s.avatar}>
-                    {<img src={profile.photos.large || userphoto}/>}
+                    {<img alt='user' src={profile.photos.large || userphoto}/>}
                 </div>
                 <div className={s.name_body}>
                   <span className={s.name}>

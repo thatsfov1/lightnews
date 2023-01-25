@@ -11,7 +11,7 @@ const SingleUser = ({userId, name, status, unfollow, followingInProgress,
 
         <div className={s.user_info}>
             <div className={s.avatar}>
-                <img src={photo != null ? photo : userphoto}/>
+                <img alt='user' src={photo != null ? photo : userphoto}/>
             </div>
             <div className={s.name}>
                 {name}
