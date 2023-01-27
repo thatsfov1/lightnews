@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Settings.module.css";
-import {AiOutlineQuestionCircle, BsCreditCard, FiLock, MdPlace, SlArrowRight} from "react-icons/all";
+import {AiOutlineQuestionCircle, FiLock, MdPlace, SlArrowRight} from "react-icons/all";
 import {compose} from "redux";
 import withAuthRedirect from "../hoc/withAuthRedirect";
 import {connect} from "react-redux";
@@ -24,17 +24,6 @@ const Settings = ({logout}) => {
                     </div>
                     <div className={s.item_title}>
                         Saved Address
-                    </div>
-                    <span>
-                        <SlArrowRight/>
-                    </span>
-                </div>
-                <div onClick={() => navigate('cards')} className={s.item}>
-                    <div className={s.item_icon + ' ' + s.card_color}>
-                        <BsCreditCard size={25}/>
-                    </div>
-                    <div className={s.item_title}>
-                        My cards
                     </div>
                     <span>
                         <SlArrowRight/>

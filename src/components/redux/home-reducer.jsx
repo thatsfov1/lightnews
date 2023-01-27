@@ -19,6 +19,7 @@ const initialState = {
         mutual:faker.datatype.number({ min: 3, max: 20})
     })),
     post: [...Array(8)].map(()=> ({
+        id:faker.datatype.uuid(),
         likes:faker.datatype.number({ min: 1, max: 10, precision: 0.1 }),
         comments:faker.datatype.number({ min: 3, max: 20}),
         message:faker.lorem.sentences(5),

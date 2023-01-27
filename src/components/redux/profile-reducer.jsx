@@ -46,7 +46,7 @@ export const saveChangesProfile = (profile) => async (dispatch,getState) => {
 
 let initialState = {
     post: [...Array(6)].map(()=> ({
-        id:faker.datatype.uuid,
+        id:faker.datatype.uuid(),
         likes:faker.datatype.number({ min: 1, max: 10, precision: 0.1 }),
         comments:faker.datatype.number(100),
         message:faker.lorem.sentences(5),

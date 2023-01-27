@@ -1,17 +1,7 @@
 import React from 'react'
 import s from './About.module.css'
 import {faker} from "@faker-js/faker";
-import {
-    AiOutlineEdit,
-    BiHeart,
-    BiLike,
-    FaRegComment,
-    FiCamera,
-    FiExternalLink,
-    FiImage,
-    FiShare2,
-    FiVideo
-} from "react-icons/all";
+import {FiExternalLink} from "react-icons/all";
 import {connect} from "react-redux";
 import userphoto from '../../../../assets/userphoto.png';
 import CreatePost from "./CreatePost";
@@ -42,7 +32,7 @@ const About = ({profile,post,addPost}) => {
                     </span>
                     <div className={s.all_photos}>
                         {
-                            profilePhotos.map(p => <img className={s.single_photo} src={p}/>)
+                            profilePhotos.map(p => <img alt='single' className={s.single_photo} src={p}/>)
                         }
                     </div>
                     <div className={s.photos_button}>
@@ -64,8 +54,8 @@ const About = ({profile,post,addPost}) => {
                     </span>
                     <div className={s.all_friends}>
                         {
-                            [...Array(9)].map(() => <div  className={s.single_friend}>
-                                    <img src={userphoto}/>
+                            [...Array(9)].map(() => <div className={s.single_friend}>
+                                    <img alt='user' src={userphoto}/>
                                     <span style={{fontSize:'14px',fontWeight:500}}>{faker.name.fullName()}</span>
                             </div>
                                 )
@@ -75,7 +65,7 @@ const About = ({profile,post,addPost}) => {
             </div>
             <div className={s.posts_container}> {/* ALL POSTS + CREATE POST CONTAINER */}
                 <CreatePost addPost={addPost} profile={profile}/>
-                <SinglePost post={post} profile={profile}/>
+                <SinglePost profileImage={profile.photos.small || userphoto} post={post} profile={profile}/>
             </div>
         </div>
     )

@@ -3,11 +3,12 @@ import s from "./Users.module.css";
 import {Pagination, Stack} from "@mui/material";
 import {AiOutlineSearch, CiFilter} from "react-icons/all";
 import SingleUser from "./SingleUser";
+import Preloader from "../common/Preloader";
 
 
 const Users = ({
                    pageSize, onPageChange, unfollow,
-                   followingInProgress, follow, totalCount, friends
+                   followingInProgress, follow, totalCount, friends,isFetching
                }) => {
 
     const pagesCount = Math.ceil(totalCount / pageSize)
@@ -24,13 +25,13 @@ const Users = ({
             </div>
         </div>
 
-        <div className={s.users}>{
+        {isFetching ? <Preloader/> : <div className={s.users}>{
             friends.map(fr => <SingleUser key={fr.id} userId={fr.id} name={fr.name} photo={fr.photos.small}
                                           status={fr.status}
                                           followingInProgress={followingInProgress} followed={fr.followed}
                                           follow={follow}
                                           unfollow={unfollow}/>)}
-        </div>
+        </div>}
 
         <div className={s.pagination}>
             <Stack spacing={2}>

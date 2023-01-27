@@ -112,7 +112,7 @@
     position: relative;
     padding: 10px 20px;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 500;
     transition: transform .3s ease;
 }
 
@@ -121,7 +121,7 @@
 }
 
 .follow{
-    background-color: #05008C;
+    background: linear-gradient(42deg, rgba(0,35,196,1) 0%, rgba(50,93,236,1) 51%, rgba(81,162,255,1) 100%);
     color: #fff;
 }
 

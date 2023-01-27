@@ -10,7 +10,7 @@ const Address = () => {
   return (
     <div className={s.address_container}>
       <div className={s.address_header}>
-        <span onClick={() => navigate(-1)}>
+        <span className={s.arrow} onClick={() => navigate(-1)}>
           <BsArrowLeft/>
         </span>
         <span>

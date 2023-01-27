@@ -21,9 +21,9 @@ const Events = ({events, addEvent, deleteEvent, toggleEvent}) => {
           </div>
           {events.length>0 && <div className={s.events_container}>
               {events.map((e) => (
-                  <div className={s.single_event}>
+                  <div key={e.id} className={s.single_event}>
                       <div className={e.completed ? s.date_container_completed : s.date_container}>
-                          <div className={s.event_month}>
+                        <div className={s.event_month}>
                               {e.month}
                           </div>
                           <div className={s.event_date}>

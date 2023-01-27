@@ -22,7 +22,6 @@ import EditProfile from "./components/Page/PageCategories/EditProfile/EditProfil
 
 const Settings = React.lazy(() => import('./components/Settings/Settings'));
 const Help = React.lazy(() => import('./components/Settings/SettingsPages/Help/Help'));
-const Cards = React.lazy(() => import('./components/Settings/SettingsPages/Cards'));
 const Address = React.lazy(() => import('./components/Settings/SettingsPages/Address'));
 const Photos = React.lazy(() => import('./components/Page/PageCategories/Photos/Photos'));
 
@@ -65,7 +64,6 @@ class App extends React.Component {
                             </Route>
                                 <Route path="/settings" element={<Settings/>}/>
                                 <Route path='/settings/help' element={<Help/>}/>
-                                <Route path='/settings/cards' element={<Cards/>} />
                                 <Route path='/settings/address' element={<Address/>}/>
                                 <Route path="/login" element={<Login/>}/>
                         </Routes>

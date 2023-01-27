@@ -14,7 +14,7 @@ const Home = ({profile,suggestFriends, stories, post, deleteSuggestFriend,
     <div className={s.container}>
       <div className={s.main}>
           <div className={s.stories}>
-              {stories.map(st => <div className={s.single_story}>
+              {stories.map(st => <div key={st.id} className={s.single_story}>
                   <div className={s.single_story_body}>
                       <img alt='avatar' src={st.avatar} className={s.single_story_avatar}/>
                       <div className={s.single_story_name}>{st.name}</div>

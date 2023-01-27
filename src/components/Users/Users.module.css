@@ -67,6 +67,7 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    padding: 10px;
     align-items: center;
 }
 
@@ -74,6 +75,7 @@
 .name {
     font-weight: 500;
     font-size: 1.2rem;
+    overflow: hidden;
 }
 
 
@@ -136,4 +138,11 @@
     display: flex;
     justify-content: center;
     padding: 20px;
+}
+
+.preloader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
 }

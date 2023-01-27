@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
-import { connect } from "react-redux";
-import Preloader from "../common/Preloader";
-import { follow, setCurrentPage, unfollow, toggleFollowingProgress, requestFriends } from "../redux/friends-reducer";
+import {connect} from "react-redux";
+import {follow, requestFriends, setCurrentPage, toggleFollowingProgress, unfollow} from "../redux/friends-reducer";
 import Users from "./Users";
 import {getCurrentPage, getFollowingInProgress, getFriends, getIsFetching, getPageSize} from '../redux/users-selectors'
 
@@ -19,16 +18,13 @@ const UsersContainer = ({currentPage,pageSize,isFetching,totalCount,friends,foll
         requestFriends(pageNumber, pageSize);
         window.scroll(0,0)
     }
-
-
-    {
         return <>
-            {isFetching ? <Preloader/> : null}
             <Users
                 totalCount={totalCount}
                 friends={friends}
                 pageSize={pageSize}
                 currentPage={currentPage}
+                isFetching={isFetching}
                 follow={follow}
                 unfollow={unfollow}
                 onPageChange={onPageChange}
@@ -37,8 +33,6 @@ const UsersContainer = ({currentPage,pageSize,isFetching,totalCount,friends,foll
             />
         </>
 
-
-    }
 }
 const mapStateToProps = (state) => {
     return {

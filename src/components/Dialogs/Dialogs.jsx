@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from "react";
 import s from "./Dialogs.module.css";
 import DialogsForm from "./DialogsForm";
 import {faker} from "@faker-js/faker";
-import { HiOutlineStatusOnline} from "react-icons/all";
+import {HiOutlineStatusOnline} from "react-icons/all";
 
 const Dialogs = ({messages,sendMessage}) => {
 
@@ -23,7 +23,7 @@ const Dialogs = ({messages,sendMessage}) => {
     return <div className={s.container}>
         <div className={s.header}>
             <div className={s.avatar}>
-                <img src={faker.internet.avatar()}/>
+                <img alt='avatar' src={faker.internet.avatar()}/>
             </div>
             <div className={s.user_info}>
                 <div className={s.name}>
@@ -38,7 +38,7 @@ const Dialogs = ({messages,sendMessage}) => {
         </div>
         <div  className={s.chat}>
             {messages.map(m => (
-                <span className={m.fromMe ? s.message_container + ' ' +  s.fromMe  : s.message_container + ' ' + s.fromFriend}>
+                <span key={m.id} className={m.fromMe ? s.message_container + ' ' +  s.fromMe  : s.message_container + ' ' + s.fromFriend}>
                     <span className={m.fromMe ? s.message_body : null}>
                         <span className={s.message}>{m.message}</span>
                         <span className={m.fromMe ? s.time_fromMe +" "+ s.message_time :s.message_time}>{m.time}</span>
