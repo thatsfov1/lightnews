@@ -6,15 +6,15 @@ import { Navigate, NavLink } from "react-router-dom"
 import { login } from "../redux/auth-reducer"
 import { connect } from "react-redux"
 
-const Login = (props) =>{
+const Login = ({isAuth,login,captchaUrl}) =>{
     
- if(props.isAuth) return <Navigate to={'/'}/>
+ if(isAuth) return <Navigate to={'/'}/>
     return <div>
-            <LoginForm login={props.login} captchaUrl={props.captchaUrl}/>
+            <LoginForm login={login} captchaUrl={captchaUrl}/>
     </div>
 }
 
-const LoginForm = (props) =>{
+const LoginForm = ({login,captchaUrl}) =>{
     const validationSchema = yup.object().shape({
         email:yup.string().email('Incorrect Email').required('This field required'),
         password:yup.string().typeError('Must be string').required('This field required').min(8,'Password is too short'),
@@ -32,7 +32,7 @@ const LoginForm = (props) =>{
         }
         validateOnBlur
         onSubmit={(values,{setStatus,setSubmitting})=> {
-            props.login(values.email, values.password, values.rememberMe, setStatus, values.captcha)
+            login(values.email, values.password, values.rememberMe, setStatus, values.captcha)
             setSubmitting(false);
         }} 
         validationSchema={validationSchema}
@@ -68,8 +68,8 @@ const LoginForm = (props) =>{
                             <div className={classes.checkbox}>
                                 <input onChange={handleChange} type="checkbox" name="rememberMe"/> Remember me
                             </div>
-                            {props.captchaUrl && <div>
-                                <img src={props.captchaUrl} alt=""/>
+                            {captchaUrl && <div>
+                                <img src={captchaUrl} alt=""/>
                                 <label htmlFor="captcha">Captcha:</label>
 
                                 <input type="captcha" name="captcha"
