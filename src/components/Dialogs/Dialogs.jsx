@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef} from "react";
 import s from "./Dialogs.module.css";
 import DialogsForm from "./DialogsForm";
 import {faker} from "@faker-js/faker";
@@ -6,7 +6,7 @@ import {HiOutlineStatusOnline} from "react-icons/all";
 
 const Dialogs = ({messages,sendMessage}) => {
 
-    const [online, setOnline] = useState(false);
+    const  online = faker.datatype.boolean()
 
     const messagesEndRef = useRef(null)
 

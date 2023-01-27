@@ -87,7 +87,8 @@ const EditProfile = ({profile, userProfile, savePhoto, saveChangesProfile}) => {
                     </div>
                     <div className={s.info_text}>
                         {editAbout
-                            ? <Field name='aboutMe' className={s.edit_input} onChange={handleChange} value={values.aboutMe} type='text'/>
+                            ? <Field name='aboutMe' className={s.edit_input}
+                                     onChange={handleChange} value={values.aboutMe} type='text'/>
                             : profile.aboutMe || <span>Write something about You</span>}
                     </div>
                 </div>
@@ -120,7 +121,7 @@ const EditProfile = ({profile, userProfile, savePhoto, saveChangesProfile}) => {
                     </div>
                     <div className={s.info_text}>
                         {Object.keys(profile.contacts).map((title) => (
-                            <div>{title} - {editSocial
+                            <div key={title}>{title} - {editSocial
                                 ? <ContactsEdit placeholder={title} handleChange={handleChange} key={title}
                                                 value={values.contacts[title]} name={title}/>
                                 : profile.contacts[title]

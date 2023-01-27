@@ -21,4 +21,5 @@ const mapStateToProps = (state) => {
 }
 export default connect(mapStateToProps,
      {setAuthUserData,userProfile ,logout})
+    // eslint-disable-next-line no-unexpected-multiline
      (HeaderContainer);

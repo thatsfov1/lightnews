@@ -46,4 +46,5 @@ const mapStateToProps = (state) => {
 }
 export default connect(mapStateToProps,
      {follow,unfollow,setCurrentPage,toggleFollowingProgress,requestFriends})
+    // eslint-disable-next-line no-unexpected-multiline
      (UsersContainer);
