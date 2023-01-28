@@ -39,8 +39,8 @@ const Events = ({events, addEvent, deleteEvent, toggleEvent}) => {
                               </div>
                           <Checkbox size='small' checked={e.completed} onChange={()=> toggleEvent(e.id)}/>
                       </div>
-                      <MdDelete onClick={() => deleteEvent(e.id)} style={{marginTop: 15}}
-                                color='#353935' size={30}/>
+                      <MdDelete onClick={() => deleteEvent(e.id)} className={s.event_basket}
+                                size={30}/>
                   </div>
               ))}
           </div>}

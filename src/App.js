@@ -18,6 +18,7 @@ import Friends from "./components/Page/PageCategories/Friends/Friends";
 import Videos from "./components/Page/PageCategories/Videos/Videos";
 import Home from "./components/Home/Home";
 import EditProfile from "./components/Page/PageCategories/EditProfile/EditProfile";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 
 
 const Settings = React.lazy(() => import('./components/Settings/Settings'));
@@ -56,7 +57,7 @@ class App extends React.Component {
                             <Route path="/users/" element={<UsersContainer/>}/>
                             <Route path="/edit" element={<EditProfile/>}/>
                             <Route path="/profile/:id/*" element={<PageContainer/>}>
-                                <Route path='' element={<About/>}/>
+                                <Route index element={<About/>}/>
                                 <Route path='info' element={<Info/>}/>
                                 <Route path='friends' element={<Friends/>}/>
                                 <Route path='photos' element={<Photos/>}/>
@@ -66,6 +67,7 @@ class App extends React.Component {
                                 <Route path='/settings/help' element={<Help/>}/>
                                 <Route path='/settings/address' element={<Address/>}/>
                                 <Route path="/login" element={<Login/>}/>
+                                <Route path="*" element={<ErrorPage/>}/>
                         </Routes>
                     </Suspense>
                     </div>

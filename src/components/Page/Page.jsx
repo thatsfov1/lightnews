@@ -4,7 +4,7 @@ import Preloader from '../common/Preloader';
 import userphoto from '../../assets/userphoto.png'
 import Status from "./Status";
 import {AiFillEdit} from "react-icons/all";
-import {Link, Outlet, useNavigate} from "react-router-dom";
+import {NavLink, Outlet, useNavigate} from "react-router-dom";
 import nocover from '../../assets/no-cover.png'
 
 const Page = ({profile, status, updateStatus,}) => {
@@ -38,11 +38,11 @@ const Page = ({profile, status, updateStatus,}) => {
                 </div>
             </div>
             <div className={s.tools}>
-                <Link to={``}> About</Link>
-                <Link to={`info`}>Info</Link>
-                <Link to={`friends`}>Friends</Link>
-                <Link to={`photos`}>Photos</Link>
-                <Link to={`videos`}>Videos</Link>
+                <NavLink  to={``}> About</NavLink>
+                <NavLink to={`info`}>Info</NavLink>
+                <NavLink to={`friends`}>Friends</NavLink>
+                <NavLink  to={`photos`}>Photos</NavLink>
+                <NavLink to={`videos`}>Videos</NavLink>
             </div>
         </div>
         <Outlet/>

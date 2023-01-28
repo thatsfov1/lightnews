@@ -113,11 +113,16 @@
     padding: 10px 20px;
     text-transform: uppercase;
     font-weight: 500;
-    transition: transform .3s ease;
+    transition: all .3s ease;
 }
 
 .button:hover{
-    transform: scale(1.015);
+    transform: scale(1.02);
+    filter: brightness(110%);
+}
+
+.button:active{
+    filter: brightness(90%);
 }
 
 .follow{

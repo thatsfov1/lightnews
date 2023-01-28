@@ -137,6 +137,7 @@
     color: white;
     font-weight: 500;
     border-radius: 20px;
+    transition: all .3s ease;
 }
 
 .delete_button{
@@ -145,8 +146,18 @@
     width: 100px;
     font-weight: 500;
     border-radius: 20px;
-    background-color: #eeeeee;
+    background-color: #e0e0e0;
     color: #343a3f;
+    transition: all .3s ease;
+}
+
+.add_button:hover, .delete_button:hover{
+    transform: scale(1.02);
+    filter: brightness(110%);
+}
+
+.add_button:active, .delete_button:active{
+    filter: brightness(90%);
 }
 
 .header_add_icon{
@@ -302,6 +313,17 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
+}
+
+.event_basket{
+    margin-top: 15px;
+    color: #353935;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.event_basket:hover{
+    transform: scale(1.07);
 }
 
 @media (max-width: 1128px) {
