@@ -22,6 +22,7 @@ const PageContainer =(props)=> {
 
     return <div>
         <Page {...props}
+            id={id}
               profile={props.profile}
               status={props.status}
               updateStatus={props.updateStatus}

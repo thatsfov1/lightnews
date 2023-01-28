@@ -7,7 +7,7 @@ import {AiFillEdit} from "react-icons/all";
 import {NavLink, Outlet, useNavigate} from "react-router-dom";
 import nocover from '../../assets/no-cover.png'
 
-const Page = ({profile, status, updateStatus}) => {
+const Page = ({profile, status, updateStatus,id}) => {
     const navigate = useNavigate()
 
     if (!profile) {
@@ -32,9 +32,9 @@ const Page = ({profile, status, updateStatus}) => {
                   </span>
                 </div>
                 <div className={s.change_button}>
-                    <button onClick={() => navigate('/edit')}>
+                        {id == 26582 ?<button onClick={() => navigate('/edit')}>
                         <AiFillEdit/> Edit Profile
-                    </button>
+                    </button>: null}
                 </div>
             </div>
             <div className={s.tools}>
