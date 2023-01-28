@@ -7,7 +7,7 @@ import {AiFillEdit} from "react-icons/all";
 import {NavLink, Outlet, useNavigate} from "react-router-dom";
 import nocover from '../../assets/no-cover.png'
 
-const Page = ({profile, status, updateStatus,}) => {
+const Page = ({profile, status, updateStatus}) => {
     const navigate = useNavigate()
 
     if (!profile) {

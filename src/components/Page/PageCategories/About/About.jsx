@@ -7,8 +7,12 @@ import userphoto from '../../../../assets/userphoto.png';
 import CreatePost from "./CreatePost";
 import {addPost} from "../../../redux/profile-reducer";
 import SinglePost from "./SinglePost";
+import {useParams} from "react-router-dom";
 
 const About = ({profile,post,addPost}) => {
+
+    const {id} = useParams()
+    console.log(id)
 
     const profilePhotos = [...Array(6)].map(() => faker.image.abstract())
 
@@ -64,7 +68,7 @@ const About = ({profile,post,addPost}) => {
                 </div>
             </div>
             <div className={s.posts_container}> {/* ALL POSTS + CREATE POST CONTAINER */}
-                <CreatePost addPost={addPost} profile={profile}/>
+                {id == 26582 ? <CreatePost addPost={addPost} profile={profile}/> : null}
                 <SinglePost profileImage={profile.photos.small || userphoto} post={post} profile={profile}/>
             </div>
         </div>
