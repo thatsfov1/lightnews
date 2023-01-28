@@ -31,12 +31,12 @@ const Events = ({events, addEvent, deleteEvent, toggleEvent}) => {
                           </div>
                       </div>
                       <div className={e.completed ? s.event_info_completed :s.event_info }>
-                          <b style={{fontSize: '14px'}}>
+                              <b style={{fontSize: '14px'}}>
                               {e.title}
                           </b>
-                          <div style={{color: '#b3bbc1', fontSize: '13px'}}>
-                              {e.message}
-                          </div>
+                              <div style={{color: '#b3bbc1', fontSize: '13px'}}>
+                                  {e.message}
+                              </div>
                           <Checkbox size='small' checked={e.completed} onChange={()=> toggleEvent(e.id)}/>
                       </div>
                       <MdDelete onClick={() => deleteEvent(e.id)} style={{marginTop: 15}}

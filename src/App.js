@@ -44,7 +44,7 @@ class App extends React.Component {
                         <NavbarFeeds/>
                         <NavbarAccount/>
                     </div>
-                    <div className='container'>
+                    <div className='container_pages'>
                         <Suspense fallback={<div
                         style={{display: "flex", width: "100%", alignItems: "center", justifyContent: "center"}}>
                         <Preloader/>

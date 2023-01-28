@@ -40,19 +40,23 @@ const Group = ({follow,unfollow,avatar,id,name,
           <div className={s.avatar}>
               <img alt='avatar' src={avatar}/>
           </div>
-          <div className={s.name_email}>
-              <NavLink to={/groups/ + id} >
-                  {name}
-              </NavLink>
+              <div className={s.name_email}>
+                  <NavLink to={/groups/ + id}>
+                      {name}
+                  </NavLink>
 
-              <div className={s.info}>
-                  {email}
+                  <div className={s.info}>
+                      {email}
+                  </div>
               </div>
-          </div>
-          <div className={s.follow_button}>
-              {followed ? <button onClick={()=>{unfollow(id)}} className={s.button + ' ' + s.unfollow}>UnFollow</button>
-                  : <button className={s.button + ' ' + s.follow}  onClick={()=>{follow(id)}} >Follow</button>}
-          </div>
+              <div>
+                  {followed ? <button onClick={() => {
+                          unfollow(id)
+                      }} className={s.button + ' ' + s.unfollow}>UnFollow</button>
+                      : <button className={s.button + ' ' + s.follow} onClick={() => {
+                          follow(id)
+                      }}>Follow</button>}
+              </div>
       </div>
 
 

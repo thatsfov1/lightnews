@@ -9,5 +9,19 @@
   z-index: -10000;
 }
 
+.container_pages{
+  margin: 10px;
+  margin-top: 0;
+  width: 85%;
+}
+
+
+@media (max-width: 768px) {
+  .container_pages{
+    width: 90%;
+  }
+}
+
+
 
 

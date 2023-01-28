@@ -116,12 +116,6 @@
     gap: 10px;
 }
 
-/*.by_name{*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    */
-/*}*/
-
 .by_name_nick {
     font-weight: 500;
 
@@ -214,4 +208,9 @@
     border-radius: 10px;
     border: none;
     margin-left:auto;
+}
+@media (max-width: 893px) {
+    .single_friend{
+        width: 47%;
+    }
 }

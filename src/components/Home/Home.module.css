@@ -10,10 +10,13 @@
 .stories{
     display: flex;
     justify-content: space-between;
+    overflow: scroll;
+    gap: 10px;
 }
 
 .single_story{
-    width: 9%;
+    width: 60px;
+
 }
 
 .single_story_body{
@@ -220,7 +223,7 @@
     flex-direction: column;
     gap: 10px;
     z-index: 1000;
-    box-shadow: 0px 0px 17px -7px rgba(66, 68, 90, 1);
+    box-shadow: 0 0 17px -7px rgba(66, 68, 90, 1);
 }
 
 .new_event_text{
@@ -301,3 +304,12 @@
     font-weight: bold;
 }
 
+@media (max-width: 1128px) {
+    .single_event, .buttons{
+        flex-direction: column;
+    }
+    .date_container, .date_container_completed{
+        width: 100%;
+    }
+
+}

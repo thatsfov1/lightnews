@@ -5,14 +5,18 @@
 }
 
 .container {
-    width: 85%;
+    width: 84%;
     height: 600px;
+    position: fixed;
     overflow-y: scroll;
+}
+
+.row{
+    position: relative;
     background-color: white;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    position: fixed;
 }
 
 .header {
@@ -21,7 +25,7 @@
     background-color: #0056fe;
     box-shadow: 1px 4px 12px -2px rgba(0, 0, 0, 0.1);
     color: white;
-    width: 85%;
+    width: 84%;
     position: fixed;
     border-radius: 5px 5px 0 0;
 }
@@ -85,10 +89,10 @@
 .send_message {
     padding: 10px;
     display: flex;
-    width: 85%;
+    width: 84%;
     gap: 10px;
     position: fixed;
-    bottom: 50px;
+    bottom: 6%;
     border-radius: 0 0 5px 5px;
     background-color: rgba(255,255,255,0.5);
     align-items: center;
