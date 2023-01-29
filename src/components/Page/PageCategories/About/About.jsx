@@ -12,7 +12,6 @@ import {useParams} from "react-router-dom";
 const About = ({profile,post,addPost}) => {
 
     const {id} = useParams()
-    console.log(id)
 
     const profilePhotos = [...Array(6)].map(() => faker.image.abstract())
 
