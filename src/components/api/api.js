@@ -9,8 +9,6 @@ const instance = axios.create({
 
 })
 
-console.log(process.env.REACT_APP_API_KEY)
-
 export const usersAPI ={
     getUsers(currentPage = 1,pageSize = 10){
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
