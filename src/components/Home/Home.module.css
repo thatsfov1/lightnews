@@ -326,12 +326,14 @@
     transform: scale(1.07);
 }
 
-@media (max-width: 1128px) {
-    .single_event, .buttons{
-        flex-direction: column;
+@media (max-width: 1220px) {
+    .right_side{
+        display: none;
     }
-    .date_container, .date_container_completed{
-        width: 100%;
+    .main{
+        width: 95%;
     }
-
 }
+
+
+
