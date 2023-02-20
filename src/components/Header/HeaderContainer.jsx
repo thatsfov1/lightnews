@@ -1,8 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
-import {logout, setAuthUserData} from "../redux/auth-reducer";
+import {logout, setAuthUserData} from "../../redux/auth-reducer";
 import Header from "./Header";
-import {userProfile} from "../redux/profile-reducer";
+import {userProfile} from "../../redux/profile-reducer";
 
 
 const HeaderContainer = (props) =>{

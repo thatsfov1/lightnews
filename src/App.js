@@ -2,29 +2,29 @@ import './App.css';
 import React, {Suspense} from 'react';
 import {NavbarAccount, NavbarFeeds} from './components/Navbar/Navbar';
 import {Routes, Route} from 'react-router-dom';
-import DialogsContainer from './components/Dialogs/DialogsContainer';
-import GroupsContainer from './components/Groups/GroupContainer';
-import UsersContainer from './components/Users/UsersContainer';
-import PageContainer from './components/Page/PageContainer';
+import DialogsContainer from './pages/Dialogs/DialogsContainer';
+import GroupsContainer from './pages/Groups/GroupContainer';
+import UsersContainer from './pages/Users/UsersContainer';
+import PageContainer from './pages/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
-import Login from './components/Login/Login';
+import Login from './pages/Login/Login';
 import {compose} from 'redux';
 import {connect} from 'react-redux';
-import {initialize} from './components/redux/app-reducer';
-import Preloader from './components/common/Preloader';
-import About from "./components/Page/PageCategories/About/About";
-import Info from "./components/Page/PageCategories/Info/Info";
-import Friends from "./components/Page/PageCategories/Friends/Friends";
-import Videos from "./components/Page/PageCategories/Videos/Videos";
-import Home from "./components/Home/Home";
-import EditProfile from "./components/Page/PageCategories/EditProfile/EditProfile";
-import ErrorPage from "./components/ErrorPage/ErrorPage";
+import {initialize} from './redux/app-reducer';
+import Preloader from './common/Preloader';
+import About from "./components/ProfileCategories/About/About";
+import Info from "./components/ProfileCategories/Info/Info";
+import Friends from "./components/ProfileCategories/Friends/Friends";
+import Videos from "./components/ProfileCategories/Videos/Videos";
+import Home from "./pages/Home/Home";
+import EditProfile from "./components/ProfileCategories/EditProfile/EditProfile";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
 
-const Settings = React.lazy(() => import('./components/Settings/Settings'));
-const Help = React.lazy(() => import('./components/Settings/SettingsPages/Help/Help'));
-const Address = React.lazy(() => import('./components/Settings/SettingsPages/Address'));
-const Photos = React.lazy(() => import('./components/Page/PageCategories/Photos/Photos'));
+const Settings = React.lazy(() => import('./pages/Settings/Settings'));
+const Help = React.lazy(() => import('./pages/Settings/SettingsPages/Help/Help'));
+const Address = React.lazy(() => import('./pages/Settings/SettingsPages/Address'));
+const Photos = React.lazy(() => import('./components/ProfileCategories/Photos/Photos'));
 
 
 class App extends React.Component {
