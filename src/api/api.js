@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL:'/api/1.0/',
+    baseURL:'',
     withCredentials:true,
     headers: {
         "API-KEY": process.env.REACT_APP_API_KEY
