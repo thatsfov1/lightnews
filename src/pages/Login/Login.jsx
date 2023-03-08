@@ -17,7 +17,7 @@ const Login = ({isAuth,login,captchaUrl}) =>{
 const LoginForm = ({login,captchaUrl}) =>{
     const validationSchema = yup.object().shape({
         email:yup.string().email('Incorrect Email').required('This field required'),
-        password:yup.string().typeError('Must be string').required('This field required').min(8,'Password is too short'),
+        password:yup.string().typeError('Must be string').required('This field required').min(4,'Password is too short'),
     })
 
     return <Formik
