@@ -1,3 +1,5 @@
+# To Log in you can use email: evgkulikovskyy@gmail.com and password:PASSWORDforapp123
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
