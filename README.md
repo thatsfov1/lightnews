@@ -18,18 +18,18 @@ Based on Facebook React Social Network with responsive design and many pages.
 - All CRUD Operations
 - Dialogue simulation
 
+## Authentication
+
+Email: evgkulikovskyy@gmail.com
+
+Password: PASSWORDforapp123
+
 
 ## FAQ
 
 #### How long has it been in development?
 
 Development took 2 or 3 months
-
-#### How to Log in?
-
-Email: evgkulikovskyy@gmail.com
-
-Password: PASSWORDforapp123
 
 
 ## Screenshots
