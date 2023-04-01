@@ -1,7 +1,7 @@
 
 # MeetFriends🫂💬
 
-Based on Facebook React Social Network with responsive design and many different pages.
+Based on Facebook React Social Network with responsive design and many pages.
 
 
 ## Tech Stack
